@@ -19,16 +19,14 @@
 
 ## 🔥 About Me
 
-``` diff
-+ Full Stack Developer
-+ AI & LLM Explorer
-+ Backend Systems Architect
-```
+Full Stack Developer\
+AI & LLM Explorer\
+Backend Systems Architect
 
-💡 I build **scalable applications**, explore **AI systems**, and design
-**robust backend architectures**.
+I build scalable applications, explore AI systems, and design robust
+backend architectures.
 
-🚀 Focus Areas
+Focus Areas
 
 -   Full Stack Web Development
 -   Artificial Intelligence & LLM Systems
@@ -134,7 +132,6 @@
 <p align="center">
 ```
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
-
 ```{=html}
 </p>
 ```
