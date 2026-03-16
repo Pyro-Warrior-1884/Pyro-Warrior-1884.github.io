@@ -1,7 +1,10 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=FF4B42&height=200&section=header&text=Albert%20Augustine&fontSize=45&fontColor=ffffff&animation=fadeIn&fontAlignY=35"/>
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0d1117&height=250&section=header&text=Albert%20Augustine&fontSize=45&fontColor=FF4B42&animation=fadeIn"/>
+</p>
 
 <h1 align="center">
-<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=40&duration=3000&pause=1000&color=FF4B42&center=true&vCenter=true&width=700&lines=Albert+Augustine;Full+Stack+Developer;AI+Explorer;Backend+Architect"/>
+Albert Augustine
+<img src="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884/main/assets/fire.gif" width="45">
 </h1>
 
 <p align="center">
@@ -10,23 +13,30 @@
 
 ---
 
-# 🔥 About Me
+<div align="center">
 
-Full Stack Developer
-AI & LLM Explorer
-Backend Systems Architect
+<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=35&duration=3000&color=FF4B42&center=true&vCenter=true&width=700&lines=Full+Stack+Developer;AI+Explorer;Backend+Architect;Building+Real+World+Applications"/>
 
-I build scalable applications, explore AI systems, and design robust backend architectures.
-
-**Focus Areas**
-
-* Full Stack Web Development
-* Artificial Intelligence & LLM Systems
-* Backend Architecture
+</div>
 
 ---
 
-# 🌐 Connect With Me
+# 🔥 About Me
+
+Hi, I’m **Albert Augustine**, a Full Stack Developer focused on building **reliable and scalable applications**.
+
+### 🚀 Areas of Interest
+
+* Full Stack Web Development
+* Artificial Intelligence and LLM Systems
+* Backend Systems and Architecture
+
+💡 **Focus:**
+Designing and developing practical software solutions that address real-world challenges.
+
+---
+
+# 🌐 Socials
 
 <p align="center">
 
@@ -45,23 +55,44 @@ I build scalable applications, explore AI systems, and design robust backend arc
 # 💻 Tech Stack
 
 <p align="center">
-<img src="https://skillicons.dev/icons?i=js,ts,react,next,node,express,tailwind,prisma,mongodb,redis,docker,git,github,python,java,cpp,go&theme=dark"/>
+
+<img src="https://skillicons.dev/icons?i=cpp,css,go,html,java,js,kotlin,python,ts"/>
+
+<br><br>
+
+<img src="https://skillicons.dev/icons?i=vercel,render,express,nextjs,nodejs,react,tailwind,prisma"/>
+
+<br><br>
+
+<img src="https://skillicons.dev/icons?i=appwrite,firebase,mongodb,mysql,redis,docker,git,github,githubactions"/>
+
+<br><br>
+
+<img src="https://skillicons.dev/icons?i=figma"/>
+
 </p>
 
 ---
 
-# 📊 GitHub Analytics
+# 📊 GitHub Stats
 
 <p align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Pyro-Warrior-1884&show_icons=true&theme=tokyonight&bg_color=0d1117&title_color=FF4B42&icon_color=FF4B42"/>
+<img src="https://github-readme-stats.vercel.app/api?username=Pyro-Warrior-1884&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&bg_color=0d1117&title_color=FF4B42&icon_color=FF4B42"/>
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Pyro-Warrior-1884&layout=compact&theme=tokyonight&bg_color=0d1117&title_color=FF4B42"/>
+<br><br>
 
-</p>
+<img src="https://nirzak-streak-stats.vercel.app/?user=Pyro-Warrior-1884&theme=tokyonight&background=0d1117&ring=FF4B42&fire=FF4B42"/>
 
-<p align="center">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Pyro-Warrior-1884&theme=tokyonight&background=0d1117&ring=FF4B42&fire=FF4B42"/>
+<br><br>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Pyro-Warrior-1884&theme=tokyonight"/>
+
+<br><br>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Pyro-Warrior-1884&theme=tokyonight" width="48%"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Pyro-Warrior-1884&theme=tokyonight" width="48%"/>
+
 </p>
 
 ---
@@ -101,7 +132,9 @@ I build scalable applications, explore AI systems, and design robust backend arc
 # ✍️ Random Dev Quote
 
 <p align="center">
+
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical"/>
+
 </p>
 
 ---
@@ -109,7 +142,9 @@ I build scalable applications, explore AI systems, and design robust backend arc
 # 🧠 LeetCode Stats
 
 <p align="center">
+
 <img src="https://leetcard.jacoblin.cool/Albert_Augustine?theme=dark&font=montserrat&radius=6"/>
+
 </p>
 
 ---
@@ -117,9 +152,17 @@ I build scalable applications, explore AI systems, and design robust backend arc
 # 🏙️ Visit My GitCity Profile
 
 <p align="center">
+
 <a href="https://www.thegitcity.com/dev/pyro-warrior-1884">
-<img src="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884/main/assets/city.png" width="800"/>
+
+<img src="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884/main/assets/city.png" width="800">
+
 </a>
+
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=FF4B42&height=120&section=footer"/>
+---
+
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0d1117&height=120&section=footer"/>
+</p>
