@@ -40,14 +40,13 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 12px 32
 .nav-logo img { width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--red); object-fit: cover; transition: box-shadow 0.3s, transform 0.3s; }
 .nav-logo img:hover { box-shadow: 0 0 14px var(--red-glow); transform: scale(1.08); }
 .nav-logo span { font-family: 'Orbitron', monospace; font-size: 0.9rem; color: var(--red); font-weight: 900; letter-spacing: 0.1em; }
-.nav-links { display: flex; gap: 24px; }
-.nav-links a { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); text-decoration: none; letter-spacing: 0.15em; transition: color 0.2s; }
+.nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.nav-links a { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.15em; transition: color 0.2s; }
 .nav-links a:hover { color: var(--red); }
-@media(max-width:600px){ .nav-links { display: none; } }
+@media(max-width:700px){ .nav-links { display: none; } }
 
 /* HERO */
 #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; padding-top: 60px; }
-
 .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,75,66,0.12) 0%, transparent 70%); border-radius: 50%; animation: pulse-glow 4s ease-in-out infinite; pointer-events: none; }
 @keyframes pulse-glow { 0%,100%{ transform:scale(1); opacity:.8; } 50%{ transform:scale(1.15); opacity:1; } }
 
@@ -63,7 +62,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 12px 32
 @keyframes glitch { 0%,94%,100%{ transform:translateX(0); opacity:0; } 95%{ transform:translateX(-4px) skewX(-2deg); opacity:.6; } 96%{ transform:translateX(4px) skewX(2deg); opacity:.6; } 97%{ transform:translateX(-2px); opacity:.6; } 98%{ transform:translateX(2px); opacity:0; } }
 
 .hero-subtitle { font-family: 'Space Mono', monospace; font-size: clamp(0.58rem, 1.8vw, 0.82rem); color: var(--red); letter-spacing: 0.28em; margin-top: 1rem; animation: fade-up 1s 0.3s ease both; }
-
 .typewriter-wrap { margin-top: 1.5rem; font-family: 'Orbitron', monospace; font-size: clamp(0.8rem, 2.2vw, 1.1rem); color: var(--muted); min-height: 2rem; animation: fade-up 1s 0.5s ease both; }
 .cursor-blink { animation: blink 0.8s infinite; color: var(--red); }
 @keyframes blink { 0%,100%{ opacity:1; } 50%{ opacity:0; } }
@@ -109,6 +107,33 @@ section { padding: 80px 0; position: relative; z-index: 2; }
 .about-card ul { list-style: none; }
 .about-card li::before { content: '▸ '; color: var(--red); }
 
+/* EDUCATION */
+.edu-list { display: flex; flex-direction: column; gap: 20px; }
+.edu-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px 28px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: start; transition: all 0.3s; position: relative; overflow: hidden; }
+.edu-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height 0.4s ease; }
+.edu-card:hover::before { height: 100%; }
+.edu-card:hover { border-color: var(--red-glow); transform: translateY(-3px); box-shadow: 0 10px 32px rgba(255,75,66,0.12); }
+.edu-inst { font-family: 'Orbitron', monospace; font-size: 0.85rem; color: var(--white); font-weight: 700; grid-column: 1; }
+.edu-period { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--red); letter-spacing: 0.1em; grid-column: 2; text-align: right; white-space: nowrap; }
+.edu-degree { font-size: 0.95rem; color: var(--muted); grid-column: 1; margin-top: 4px; }
+.edu-score { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); grid-column: 2; text-align: right; margin-top: 4px; }
+.edu-score span { color: var(--red); font-weight: 700; }
+@media(max-width:520px){ .edu-card { grid-template-columns: 1fr; } .edu-period, .edu-score { text-align: left; } }
+
+/* EXPERIENCE */
+.exp-list { display: flex; flex-direction: column; gap: 20px; }
+.exp-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 26px 28px; transition: all 0.3s; position: relative; overflow: hidden; }
+.exp-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height 0.4s ease; }
+.exp-card:hover::before { height: 100%; }
+.exp-card:hover { border-color: var(--red-glow); transform: translateY(-3px); box-shadow: 0 10px 32px rgba(255,75,66,0.12); }
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.exp-company { font-family: 'Orbitron', monospace; font-size: 0.82rem; color: var(--white); font-weight: 700; }
+.exp-period { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--red); letter-spacing: 0.1em; white-space: nowrap; }
+.exp-role { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--red); letter-spacing: 0.12em; margin-bottom: 14px; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.exp-bullets li { font-size: 0.95rem; color: var(--muted); line-height: 1.7; padding-left: 16px; position: relative; }
+.exp-bullets li::before { content: '▸'; color: var(--red); position: absolute; left: 0; }
+
 /* TECH STACK */
 .tech-categories { display: flex; flex-direction: column; gap: 28px; }
 .tech-category h3 { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--red); letter-spacing: 0.3em; margin-bottom: 12px; text-transform: uppercase; }
@@ -116,17 +141,45 @@ section { padding: 80px 0; position: relative; z-index: 2; }
 .tech-tag { padding: 6px 13px; border: 1px solid var(--border); border-radius: 2px; font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); background: var(--card-bg); transition: all 0.25s; cursor: default; }
 .tech-tag:hover { background: var(--red-dim); border-color: var(--red); color: var(--red); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(255,75,66,0.2); }
 
-/* PINNED PROJECTS */
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-.project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; transition: all 0.35s; position: relative; overflow: hidden; cursor: pointer; }
+/* PROJECTS */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; transition: all 0.35s; position: relative; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; }
 .project-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--red-dim), transparent); opacity: 0; transition: opacity 0.35s; pointer-events: none; }
 .project-card:hover::after { opacity: 1; }
 .project-card:hover { border-color: var(--red); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(255,75,66,0.18); }
 .proj-num { font-family: 'Orbitron', monospace; font-size: 2rem; font-weight: 900; color: rgba(255,75,66,0.1); line-height: 1; margin-bottom: 8px; }
 .project-card h3 { font-family: 'Orbitron', monospace; font-size: 0.9rem; color: var(--white); margin-bottom: 8px; position: relative; z-index: 1; }
-.project-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; position: relative; z-index: 1; }
+.project-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; position: relative; z-index: 1; flex: 1; }
+.proj-tech-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; position: relative; z-index: 1; }
+.proj-tech { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: var(--red); background: var(--red-dim); border: 1px solid rgba(255,75,66,0.25); padding: 3px 8px; border-radius: 2px; letter-spacing: 0.08em; }
+.proj-bullets { list-style: none; margin: 10px 0 0; display: flex; flex-direction: column; gap: 6px; position: relative; z-index: 1; }
+.proj-bullets li { font-size: 0.82rem; color: var(--muted); line-height: 1.55; padding-left: 14px; position: relative; }
+.proj-bullets li::before { content: '▸'; color: var(--red); position: absolute; left: 0; font-size: 0.75rem; }
 .proj-link { display: inline-block; margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--red); letter-spacing: 0.15em; text-decoration: none; position: relative; z-index: 1; transition: letter-spacing 0.3s; }
 .project-card:hover .proj-link { letter-spacing: 0.25em; }
+
+/* CERTIFICATIONS */
+.certs-list { display: flex; flex-direction: column; gap: 14px; }
+.cert-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 18px 24px; display: flex; align-items: center; gap: 18px; transition: all 0.3s; position: relative; overflow: hidden; }
+.cert-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--red), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+.cert-card:hover::before { transform: scaleX(1); }
+.cert-card:hover { border-color: var(--red-glow); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,75,66,0.12); }
+.cert-icon { font-family: 'Orbitron', monospace; font-size: 1.2rem; color: var(--red); flex-shrink: 0; opacity: 0.7; }
+.cert-info h4 { font-family: 'Orbitron', monospace; font-size: 0.75rem; color: var(--white); margin-bottom: 4px; }
+.cert-info p { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; }
+
+/* COMPETITIVE CODING */
+.coding-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.coding-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
+.coding-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--red), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+.coding-card:hover::before { transform: scaleX(1); }
+.coding-card:hover { border-color: var(--red); box-shadow: 0 10px 28px rgba(255,75,66,0.15); transform: translateY(-3px); }
+.coding-platform { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.2em; margin-bottom: 10px; }
+.coding-stat { font-family: 'Orbitron', monospace; font-size: 1.7rem; font-weight: 900; color: var(--red); display: block; line-height: 1; }
+.coding-label { font-family: 'Space Mono', monospace; font-size: 0.58rem; color: var(--muted); letter-spacing: 0.15em; margin-top: 6px; }
+.coding-sub { display: flex; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.coding-sub span { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 3px 8px; border-radius: 2px; }
+.coding-sub span b { color: var(--red); }
 
 /* REPOS */
 .repos-controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
@@ -222,8 +275,11 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
   </a>
   <div class="nav-links">
     <a href="#about">ABOUT</a>
+    <a href="#education">EDU</a>
+    <a href="#experience">EXP</a>
     <a href="#stack">STACK</a>
     <a href="#pinned">PROJECTS</a>
+    <a href="#coding">CODING</a>
     <a href="#repos">REPOS</a>
     <a href="#stats">STATS</a>
     <a href="#contact">CONTACT</a>
@@ -250,6 +306,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
       <span class="badge">AI / LLM</span>
       <span class="badge">BACKEND ARCH</span>
       <span class="badge">OPEN SOURCE</span>
+      <span class="badge">LEETCODE 250+</span>
     </div>
   </div>
   <div class="scroll-hint">
@@ -271,7 +328,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
     <div class="about-grid">
       <div class="about-card reveal">
         <h3>WHO AM I</h3>
-        <p>Hi, I'm <strong style="color:var(--white)">Albert Augustine</strong> — a Full Stack Developer focused on building <strong style="color:var(--red)">reliable and scalable applications</strong> that solve real-world problems.</p>
+        <p>Hi, I'm <strong style="color:var(--white)">Albert Augustine</strong> — a Full Stack Developer focused on building <strong style="color:var(--red)">reliable and scalable applications</strong> that solve real-world problems. Currently pursuing B.Tech in CSE at Amrita Vishwa Vidyapeetham, Coimbatore.</p>
       </div>
       <div class="about-card reveal" style="transition-delay:0.12s">
         <h3>INTERESTS</h3>
@@ -279,6 +336,90 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
           <li>Full Stack Web Development</li>
           <li>Artificial Intelligence &amp; LLM Systems</li>
           <li>Backend Systems &amp; Architecture</li>
+          <li>Data Structures &amp; Algorithms</li>
+          <li>Competitive Programming</li>
+        </ul>
+      </div>
+      <div class="about-card reveal" style="transition-delay:0.2s">
+        <h3>LOCATION</h3>
+        <p>📍 Coimbatore, India<br/>
+        <span style="font-family:'Space Mono',monospace;font-size:0.75rem;">albertaugustine1884@gmail.com</span></p>
+      </div>
+      <div class="about-card reveal" style="transition-delay:0.3s">
+        <h3>LANGUAGES</h3>
+        <ul>
+          <li>English — Professional</li>
+          <li>Malayalam — Basic</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">02</span>
+      <h2>EDUCATION</h2>
+      <div class="line"></div>
+    </div>
+    <div class="edu-list">
+      <div class="edu-card reveal">
+        <div class="edu-inst">Amrita Vishwa Vidyapeetham</div>
+        <div class="edu-period">SEP 2022 — PRESENT</div>
+        <div class="edu-degree">B.Tech in Computer Science and Engineering · Coimbatore</div>
+        <div class="edu-score">CGPA <span>7.35</span></div>
+      </div>
+      <div class="edu-card reveal" style="transition-delay:0.1s">
+        <div class="edu-inst">United Indian School</div>
+        <div class="edu-period">KUWAIT</div>
+        <div class="edu-degree">Higher Secondary (12th Grade)</div>
+        <div class="edu-score"><span>89%</span></div>
+      </div>
+      <div class="edu-card reveal" style="transition-delay:0.2s">
+        <div class="edu-inst">United Indian School</div>
+        <div class="edu-period">KUWAIT</div>
+        <div class="edu-degree">Secondary (10th Grade)</div>
+        <div class="edu-score"><span>92%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">03</span>
+      <h2>EXPERIENCE</h2>
+      <div class="line"></div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div class="exp-company">Al Araab Integrated Group for General Trading</div>
+          <div class="exp-period">MAY 2025 — JUN 2025</div>
+        </div>
+        <div class="exp-role">WEBSITE DESIGNER INTERN · KUWAIT</div>
+        <ul class="exp-bullets">
+          <li>Redesigned the company's official website using Figma, applying UI/UX principles to create a responsive and visually consistent design across devices.</li>
+          <li>Researched modern web development and digital branding trends to improve content structure and market relevance for Kuwait-based users.</li>
+        </ul>
+      </div>
+      <div class="exp-card reveal" style="transition-delay:0.12s">
+        <div class="exp-header">
+          <div class="exp-company">Finstack</div>
+          <div class="exp-period">JUL 2024 — AUG 2024</div>
+        </div>
+        <div class="exp-role">DATABASE DEVELOPER INTERN</div>
+        <ul class="exp-bullets">
+          <li>Managed application deployment, debugging, and issue resolution, gaining hands-on experience in query optimization.</li>
+          <li>Built efficient, data-driven solutions focusing on performance and reliability in production environments.</li>
         </ul>
       </div>
     </div>
@@ -291,7 +432,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="stack">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">02</span>
+      <span class="num">04</span>
       <h2>TECH STACK</h2>
       <div class="line"></div>
     </div>
@@ -307,6 +448,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
             <span class="tech-tag">Java</span>
             <span class="tech-tag">Go</span>
             <span class="tech-tag">Kotlin</span>
+            <span class="tech-tag">SQL</span>
             <span class="tech-tag">HTML</span>
             <span class="tech-tag">CSS</span>
           </div>
@@ -317,11 +459,14 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
           <h3>Frameworks &amp; Runtime</h3>
           <div class="tech-tags">
             <span class="tech-tag">Next.js</span>
-            <span class="tech-tag">React</span>
+            <span class="tech-tag">React.js</span>
             <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">Express</span>
+            <span class="tech-tag">Express.js</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Solid.js</span>
             <span class="tech-tag">Tailwind</span>
             <span class="tech-tag">Prisma</span>
+            <span class="tech-tag">GraphQL</span>
           </div>
         </div>
       </div>
@@ -331,17 +476,28 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
           <div class="tech-tags">
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Firebase Firestore</span>
             <span class="tech-tag">Redis</span>
-            <span class="tech-tag">Firebase</span>
             <span class="tech-tag">Appwrite</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">GitHub Actions</span>
-            <span class="tech-tag">Vercel</span>
-            <span class="tech-tag">Render</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">BullMQ</span>
           </div>
         </div>
       </div>
       <div class="reveal" style="transition-delay:0.3s">
+        <div class="tech-category">
+          <h3>DevOps &amp; Deployment</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">GitHub Actions</span>
+            <span class="tech-tag">Vercel</span>
+            <span class="tech-tag">Render</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">YAML</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.4s">
         <div class="tech-category">
           <h3>Tools</h3>
           <div class="tech-tags">
@@ -361,34 +517,148 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="pinned">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">03</span>
+      <span class="num">05</span>
       <h2>DEPLOYED PROJECTS</h2>
       <div class="line"></div>
     </div>
     <div class="projects-grid">
       <div class="project-card reveal">
         <div class="proj-num">01</div>
-        <h3>BMO</h3>
-        <p>An interactive project deployed on Vercel with a clean, functional interface.</p>
-        <a class="proj-link" href="https://bmo-5i547da52-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
+        <h3>Code Submission Tool</h3>
+        <p>End-to-end academic code evaluation platform with student and instructor portals.</p>
+        <ul class="proj-bullets">
+          <li>Processes 60+ submissions per batch with live status tracking and detailed execution reports.</li>
+          <li>Three-layer architecture improving evaluation transparency and grading efficiency by 2×.</li>
+        </ul>
+        <div class="proj-tech-row">
+          <span class="proj-tech">React.js</span>
+          <span class="proj-tech">Node.js</span>
+          <span class="proj-tech">Express.js</span>
+          <span class="proj-tech">Firebase</span>
+          <span class="proj-tech">Vercel</span>
+          <span class="proj-tech">Render</span>
+        </div>
       </div>
       <div class="project-card reveal" style="transition-delay:0.1s">
         <div class="proj-num">02</div>
         <h3>NavCart</h3>
-        <p>A frontend application for navigation and cart management built with React.</p>
+        <p>Responsive web application to help users locate products and optimize in-store navigation.</p>
+        <ul class="proj-bullets">
+          <li>Reusable components, REST API integration, and real-time cart updates.</li>
+          <li>Instant search across 40+ store sections, significantly reducing shopping navigation time.</li>
+        </ul>
+        <div class="proj-tech-row">
+          <span class="proj-tech">React.js</span>
+          <span class="proj-tech">REST API</span>
+        </div>
         <a class="proj-link" href="https://frontend-cmy9dbzhg-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
       </div>
       <div class="project-card reveal" style="transition-delay:0.2s">
         <div class="proj-num">03</div>
-        <h3>GitHub Tool</h3>
-        <p>A GitHub profile analytics frontend for exploring repos and user stats.</p>
-        <a class="proj-link" href="https://github-frontend-p4jahh4jo-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
+        <h3>Weed Detection System</h3>
+        <p>Full-stack weed detection system with image upload, model selection, and real-time classification.</p>
+        <ul class="proj-bullets">
+          <li>Supports 4 trained deep learning models: U-Net, ResNet50, EfficientNet, DeepLabV3.</li>
+          <li>Optimized API inference with seamless frontend–backend integration.</li>
+        </ul>
+        <div class="proj-tech-row">
+          <span class="proj-tech">Next.js</span>
+          <span class="proj-tech">FastAPI</span>
+          <span class="proj-tech">U-Net</span>
+          <span class="proj-tech">ResNet50</span>
+          <span class="proj-tech">DeepLabV3</span>
+        </div>
       </div>
       <div class="project-card reveal" style="transition-delay:0.3s">
         <div class="proj-num">04</div>
+        <h3>BMO</h3>
+        <p>An interactive project deployed on Vercel with a clean, functional interface.</p>
+        <div class="proj-tech-row">
+          <span class="proj-tech">Vercel</span>
+        </div>
+        <a class="proj-link" href="https://bmo-5i547da52-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
+      </div>
+      <div class="project-card reveal" style="transition-delay:0.35s">
+        <div class="proj-num">05</div>
+        <h3>GitHub Tool</h3>
+        <p>A GitHub profile analytics frontend for exploring repos and user stats.</p>
+        <div class="proj-tech-row">
+          <span class="proj-tech">GitHub API</span>
+          <span class="proj-tech">Vercel</span>
+        </div>
+        <a class="proj-link" href="https://github-frontend-p4jahh4jo-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
+      </div>
+      <div class="project-card reveal" style="transition-delay:0.4s">
+        <div class="proj-num">06</div>
         <h3>AI Finance</h3>
         <p>AI-powered finance recommendation engine with a sleek dashboard UI.</p>
+        <div class="proj-tech-row">
+          <span class="proj-tech">AI / LLM</span>
+          <span class="proj-tech">Vercel</span>
+        </div>
         <a class="proj-link" href="https://aifinancerecomm-9o1uqcqmi-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">06</span>
+      <h2>CERTIFICATIONS</h2>
+      <div class="line"></div>
+    </div>
+    <div class="certs-list">
+      <div class="cert-card reveal">
+        <div class="cert-icon">◈</div>
+        <div class="cert-info">
+          <h4>Daily Programming Challenge</h4>
+          <p>Wisdom Sprouts IT Training Hub &nbsp;·&nbsp; SEP 2024 — OCT 2024</p>
+        </div>
+      </div>
+      <div class="cert-card reveal" style="transition-delay:0.1s">
+        <div class="cert-icon">◈</div>
+        <div class="cert-info">
+          <h4>Problem Solving &amp; Coding Course</h4>
+          <p>CIR, Amrita Vishwa Vidyapeetham &nbsp;·&nbsp; SEP 2023 — MAR 2024</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPETITIVE CODING -->
+<section id="coding">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">07</span>
+      <h2>COMPETITIVE CODING</h2>
+      <div class="line"></div>
+    </div>
+    <div class="coding-grid reveal">
+      <div class="coding-card">
+        <div class="coding-platform">LEETCODE</div>
+        <span class="coding-stat">250+</span>
+        <div class="coding-label">QUESTIONS SOLVED</div>
+        <div class="coding-sub">
+          <span><b>10+</b> Hard</span>
+          <span><b>100+</b> Medium</span>
+          <span><b>60+</b> Easy</span>
+        </div>
+      </div>
+      <div class="coding-card">
+        <div class="coding-platform">HACKERRANK</div>
+        <span class="coding-stat">★ 5</span>
+        <div class="coding-label">PROBLEM SOLVING</div>
+        <div class="coding-sub">
+          <span>5-Star Rating</span>
+        </div>
       </div>
     </div>
   </div>
@@ -400,7 +670,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="repos">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">04</span>
+      <span class="num">08</span>
       <h2>ALL REPOSITORIES</h2>
       <div class="line"></div>
     </div>
@@ -433,7 +703,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="stats">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">05</span>
+      <span class="num">09</span>
       <h2>GITHUB STATS</h2>
       <div class="line"></div>
     </div>
@@ -460,7 +730,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="contact">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">06</span>
+      <span class="num">10</span>
       <h2>CONTACT</h2>
       <div class="line"></div>
     </div>
@@ -473,7 +743,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
         </svg>
         LINKEDIN
       </a>
-      <a class="social-btn" href="mailto:albertnedumudy@gmail.com">
+      <a class="social-btn" href="mailto:albertaugustine1884@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
           <polyline points="22,6 12,13 2,6"/>
@@ -485,6 +755,12 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
         </svg>
         GITHUB
+      </a>
+      <a class="social-btn" href="tel:+918089735150">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.75 1.19 2 2 0 012.72 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.65a16 16 0 006.29 6.29l1.01-1.01a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        +91 80897 35150
       </a>
     </div>
   </div>
@@ -521,7 +797,7 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(animRing);
 })();
 document.addEventListener('mouseover', e => {
-  const over = e.target.closest('a, button, .project-card, .about-card, .tech-tag, .repo-card, .filter-btn, .stat-card');
+  const over = e.target.closest('a, button, .project-card, .about-card, .tech-tag, .repo-card, .filter-btn, .stat-card, .coding-card, .cert-card, .exp-card, .edu-card');
   if (over) { ring.style.width = '54px'; ring.style.height = '54px'; ring.style.opacity = '1'; }
   else       { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.opacity = '0.5'; }
 });
@@ -567,7 +843,7 @@ function drawPts() {
 drawPts();
 
 // ── TYPEWRITER ──
-const lines = ['Building Real-World Applications', 'Full Stack Developer', 'AI Explorer', 'Backend Architect', 'Pyro-Warrior-1884'];
+const lines = ['Building Real-World Applications', 'Full Stack Developer', 'AI Explorer', 'Backend Architect', 'LeetCode 250+ Solver', 'Pyro-Warrior-1884'];
 let li = 0, ci = 0, del = false;
 const tw = document.getElementById('typewriter');
 function type() {
