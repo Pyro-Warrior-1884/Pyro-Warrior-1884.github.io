@@ -4,192 +4,222 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Albert Augustine</title>
+<link rel="icon" type="image/png" href="https://github.com/Pyro-Warrior-1884.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg: #0d1117;
-    --red: #FF4B42;
-    --red-dim: rgba(255,75,66,0.15);
-    --red-glow: rgba(255,75,66,0.4);
-    --white: #e6edf3;
-    --muted: #8b949e;
-    --card-bg: rgba(22,27,34,0.85);
-    --border: rgba(255,75,66,0.2);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--white); font-family: 'Rajdhani', sans-serif; overflow-x: hidden; cursor: none; }
+:root {
+  --bg: #0d1117;
+  --red: #FF4B42;
+  --red-dim: rgba(255,75,66,0.15);
+  --red-glow: rgba(255,75,66,0.4);
+  --white: #e6edf3;
+  --muted: #8b949e;
+  --card-bg: rgba(22,27,34,0.85);
+  --border: rgba(255,75,66,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--white); font-family: 'Rajdhani', sans-serif; overflow-x: hidden; cursor: none; }
 
-  /* CURSOR */
-  #cursor { position: fixed; width: 12px; height: 12px; background: var(--red); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: screen; }
-  #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--red); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s, opacity 0.2s; opacity: 0.5; }
+/* CURSOR */
+#cursor { position: fixed; width: 12px; height: 12px; background: var(--red); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: screen; }
+#cursor-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--red); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s, opacity 0.2s; opacity: 0.5; }
 
-  /* PARTICLES */
-  #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+/* PARTICLES */
+#particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
-  /* SCANLINES */
-  body::after { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); pointer-events: none; z-index: 1; }
+/* SCANLINES */
+body::after { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); pointer-events: none; z-index: 1; }
 
-  .container { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+/* LAYOUT */
+.container { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
-  /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; background: rgba(13,17,23,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,75,66,0.1); }
-  .nav-logo { font-family: 'Orbitron', monospace; font-size: 1rem; color: var(--red); font-weight: 900; letter-spacing: 0.1em; }
-  .nav-links { display: flex; gap: 24px; }
-  .nav-links a { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); text-decoration: none; letter-spacing: 0.15em; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--red); }
-  @media(max-width:600px){ .nav-links { display: none; } }
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 12px 32px; display: flex; justify-content: space-between; align-items: center; background: rgba(13,17,23,0.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,75,66,0.1); }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo img { width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--red); object-fit: cover; transition: box-shadow 0.3s, transform 0.3s; }
+.nav-logo img:hover { box-shadow: 0 0 14px var(--red-glow); transform: scale(1.08); }
+.nav-logo span { font-family: 'Orbitron', monospace; font-size: 0.9rem; color: var(--red); font-weight: 900; letter-spacing: 0.1em; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); text-decoration: none; letter-spacing: 0.15em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--red); }
+@media(max-width:600px){ .nav-links { display: none; } }
 
-  /* HERO */
-  #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; }
-  .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,75,66,0.12) 0%, transparent 70%); border-radius: 50%; animation: pulse-glow 4s ease-in-out infinite; pointer-events: none; }
-  @keyframes pulse-glow { 0%,100%{transform:scale(1);opacity:.8} 50%{transform:scale(1.15);opacity:1} }
-  .hero-name { font-family: 'Orbitron', monospace; font-size: clamp(2.4rem, 8vw, 5.5rem); font-weight: 900; color: var(--white); letter-spacing: 0.06em; line-height: 1; position: relative; animation: fade-up 1s ease both; }
-  .hero-name span { color: var(--red); }
-  .hero-name::after { content: attr(data-text); position: absolute; inset: 0; color: var(--red); clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); animation: glitch 5s infinite; opacity: 0.6; }
-  @keyframes glitch { 0%,94%,100%{transform:translateX(0);opacity:0} 95%{transform:translateX(-4px) skewX(-2deg);opacity:.6} 96%{transform:translateX(4px) skewX(2deg);opacity:.6} 97%{transform:translateX(-2px);opacity:.6} 98%{transform:translateX(2px);opacity:0} }
-  .hero-subtitle { font-family: 'Space Mono', monospace; font-size: clamp(0.6rem, 2vw, 0.85rem); color: var(--red); letter-spacing: 0.3em; margin-top: 1rem; animation: fade-up 1s 0.3s ease both; }
-  .typewriter-wrap { margin-top: 1.5rem; font-family: 'Orbitron', monospace; font-size: clamp(0.85rem, 2.5vw, 1.2rem); color: var(--muted); min-height: 2rem; animation: fade-up 1s 0.5s ease both; }
-  .cursor-blink { animation: blink 0.8s infinite; color: var(--red); }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-  .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 2rem; animation: fade-up 1s 0.7s ease both; }
-  .badge { padding: 6px 14px; border: 1px solid var(--border); border-radius: 2px; font-size: 0.7rem; font-family: 'Space Mono', monospace; letter-spacing: 0.15em; color: var(--muted); background: var(--card-bg); transition: all 0.3s; position: relative; overflow: hidden; }
-  .badge::before { content: ''; position: absolute; inset: 0; background: var(--red-dim); transform: translateX(-100%); transition: transform 0.3s; }
-  .badge:hover::before { transform: translateX(0); }
-  .badge:hover { color: var(--red); border-color: var(--red); }
-  .pv-badge { display: inline-flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 0.75rem; border-radius: 3px; overflow: hidden; margin-top: 20px; animation: fade-up 1s 0.9s ease both; }
-  .pv-label { background: #161b22; color: var(--muted); padding: 6px 14px; letter-spacing: 0.12em; border: 1px solid var(--border); border-right: none; border-radius: 3px 0 0 3px; }
-  .pv-count { background: var(--red); color: #fff; padding: 6px 14px; border-radius: 0 3px 3px 0; }
-  .scroll-hint { position: absolute; bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--muted); font-size: 0.7rem; letter-spacing: 0.2em; animation: fade-up 1s 1.2s ease both; font-family: 'Space Mono', monospace; }
-  .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--red), transparent); animation: scroll-anim 2s ease-in-out infinite; }
-  @keyframes scroll-anim { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:.4;transform:scaleY(.6)} }
-  @keyframes fade-up { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+/* HERO */
+#hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; padding-top: 60px; }
 
-  /* SECTIONS */
-  section { padding: 80px 0; position: relative; z-index: 2; }
-  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
-  .section-header h2 { font-family: 'Orbitron', monospace; font-size: clamp(1.1rem, 3vw, 1.7rem); color: var(--white); white-space: nowrap; }
-  .section-header .line { flex: 1; height: 1px; background: linear-gradient(to right, var(--red), transparent); }
-  .section-header .num { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--red); letter-spacing: 0.1em; }
+.hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,75,66,0.12) 0%, transparent 70%); border-radius: 50%; animation: pulse-glow 4s ease-in-out infinite; pointer-events: none; }
+@keyframes pulse-glow { 0%,100%{ transform:scale(1); opacity:.8; } 50%{ transform:scale(1.15); opacity:1; } }
 
-  /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  @media(max-width:600px){ .about-grid { grid-template-columns: 1fr; } }
-  .about-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
-  .about-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height 0.4s ease; }
-  .about-card:hover::before { height: 100%; }
-  .about-card:hover { border-color: var(--red-glow); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(255,75,66,0.12); }
-  .about-card h3 { font-family: 'Orbitron', monospace; font-size: 0.8rem; color: var(--red); letter-spacing: 0.2em; margin-bottom: 12px; }
-  .about-card p, .about-card li { font-size: 1rem; color: var(--muted); line-height: 1.7; }
-  .about-card ul { list-style: none; }
-  .about-card li::before { content: '▸ '; color: var(--red); }
+.hero-avatar-wrap { position: relative; width: 100px; height: 100px; margin: 0 auto 28px; animation: fade-up 0.8s ease both; }
+.hero-avatar-wrap img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--red); object-fit: cover; position: relative; z-index: 1; display: block; }
+.hero-avatar-ring { position: absolute; inset: -7px; border-radius: 50%; border: 1.5px solid rgba(255,75,66,0.35); animation: spin-ring 8s linear infinite; }
+.hero-avatar-ring::before { content: ''; position: absolute; top: -3px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background: var(--red); border-radius: 50%; box-shadow: 0 0 6px var(--red); }
+@keyframes spin-ring { to { transform: rotate(360deg); } }
 
-  /* TECH */
-  .tech-categories { display: flex; flex-direction: column; gap: 28px; }
-  .tech-category h3 { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--red); letter-spacing: 0.3em; margin-bottom: 12px; text-transform: uppercase; }
-  .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tech-tag { padding: 6px 13px; border: 1px solid var(--border); border-radius: 2px; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); background: var(--card-bg); transition: all 0.25s; cursor: default; }
-  .tech-tag:hover { background: var(--red-dim); border-color: var(--red); color: var(--red); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(255,75,66,0.2); }
+.hero-name { font-family: 'Orbitron', monospace; font-size: clamp(2.2rem, 7vw, 5rem); font-weight: 900; color: var(--white); letter-spacing: 0.06em; line-height: 1; position: relative; animation: fade-up 1s 0.1s ease both; }
+.hero-name span { color: var(--red); }
+.hero-name::after { content: attr(data-text); position: absolute; inset: 0; color: var(--red); clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); animation: glitch 5s infinite; opacity: 0.6; pointer-events: none; }
+@keyframes glitch { 0%,94%,100%{ transform:translateX(0); opacity:0; } 95%{ transform:translateX(-4px) skewX(-2deg); opacity:.6; } 96%{ transform:translateX(4px) skewX(2deg); opacity:.6; } 97%{ transform:translateX(-2px); opacity:.6; } 98%{ transform:translateX(2px); opacity:0; } }
 
-  /* PINNED PROJECTS */
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-  .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; transition: all 0.35s; position: relative; overflow: hidden; cursor: pointer; }
-  .project-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--red-dim), transparent); opacity: 0; transition: opacity 0.35s; }
-  .project-card:hover::after { opacity: 1; }
-  .project-card:hover { border-color: var(--red); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(255,75,66,0.18); }
-  .project-card .proj-num { font-family: 'Orbitron', monospace; font-size: 2rem; font-weight: 900; color: rgba(255,75,66,0.1); line-height: 1; margin-bottom: 8px; }
-  .project-card h3 { font-family: 'Orbitron', monospace; font-size: 0.95rem; color: var(--white); margin-bottom: 8px; position: relative; z-index: 1; }
-  .project-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; position: relative; z-index: 1; }
-  .proj-link { display: inline-block; margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--red); letter-spacing: 0.15em; text-decoration: none; position: relative; z-index: 1; transition: letter-spacing 0.3s; }
-  .project-card:hover .proj-link { letter-spacing: 0.25em; }
+.hero-subtitle { font-family: 'Space Mono', monospace; font-size: clamp(0.58rem, 1.8vw, 0.82rem); color: var(--red); letter-spacing: 0.28em; margin-top: 1rem; animation: fade-up 1s 0.3s ease both; }
 
-  /* REPOS */
-  .repos-controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
-  .repos-search { flex: 1; min-width: 180px; background: var(--card-bg); border: 1px solid var(--border); color: var(--white); font-family: 'Space Mono', monospace; font-size: 0.75rem; padding: 10px 16px; border-radius: 3px; outline: none; transition: border-color 0.3s; }
-  .repos-search:focus { border-color: var(--red); }
-  .repos-search::placeholder { color: var(--muted); }
-  .sort-select { padding: 10px 14px; background: var(--card-bg); border: 1px solid var(--border); color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.68rem; border-radius: 3px; cursor: pointer; outline: none; transition: border-color 0.3s; }
-  .sort-select:focus { border-color: var(--red); }
-  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-  .filter-btn { padding: 7px 13px; border: 1px solid var(--border); border-radius: 2px; background: var(--card-bg); color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; cursor: pointer; transition: all 0.25s; }
-  .filter-btn:hover, .filter-btn.active { background: var(--red-dim); border-color: var(--red); color: var(--red); }
-  .repos-meta { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); margin-bottom: 20px; letter-spacing: 0.1em; }
-  .repos-meta span { color: var(--red); }
-  .repos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-  .repo-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; cursor: pointer; }
-  .repo-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--red), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
-  .repo-card:hover::before { transform: scaleX(1); }
-  .repo-card:hover { border-color: var(--red-glow); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(255,75,66,0.13); }
-  .repo-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-  .repo-name { font-family: 'Orbitron', monospace; font-size: 0.78rem; color: var(--red); font-weight: 700; line-height: 1.3; word-break: break-word; }
-  .repo-fork-badge { font-family: 'Space Mono', monospace; font-size: 0.58rem; color: var(--muted); border: 1px solid var(--border); padding: 2px 6px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
-  .repo-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.5; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .repo-desc.no-desc { font-style: italic; opacity: 0.45; }
-  .repo-topics { display: flex; flex-wrap: wrap; gap: 5px; }
-  .repo-topic { font-family: 'Space Mono', monospace; font-size: 0.58rem; color: #58a6ff; background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.2); padding: 2px 7px; border-radius: 10px; }
-  .repo-footer { display: flex; align-items: center; gap: 12px; margin-top: auto; flex-wrap: wrap; }
-  .repo-lang { display: flex; align-items: center; gap: 5px; }
-  .lang-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-  .lang-name { font-family: 'Space Mono', monospace; font-size: 0.63rem; color: var(--muted); }
-  .repo-stat { display: flex; align-items: center; gap: 4px; font-family: 'Space Mono', monospace; font-size: 0.63rem; color: var(--muted); }
-  .repo-stat svg { width: 12px; height: 12px; opacity: 0.6; }
-  .repo-updated { font-family: 'Space Mono', monospace; font-size: 0.58rem; color: var(--muted); margin-left: auto; opacity: 0.5; }
-  .repo-link { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--red); text-decoration: none; letter-spacing: 0.1em; transition: letter-spacing 0.3s; }
-  .repo-card:hover .repo-link { letter-spacing: 0.2em; }
-  .repos-loading { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 60px 0; color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.8rem; letter-spacing: 0.2em; }
-  .loading-spinner { width: 36px; height: 36px; border: 2px solid var(--border); border-top-color: var(--red); border-radius: 50%; animation: spin 0.8s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .repos-empty { text-align: center; padding: 60px 0; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.15em; }
-  .load-more-wrap { text-align: center; margin-top: 28px; }
-  .load-more-btn { padding: 12px 32px; border: 1px solid var(--red); border-radius: 3px; background: transparent; color: var(--red); font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.2em; cursor: pointer; transition: all 0.3s; }
-  .load-more-btn:hover { background: var(--red-dim); }
+.typewriter-wrap { margin-top: 1.5rem; font-family: 'Orbitron', monospace; font-size: clamp(0.8rem, 2.2vw, 1.1rem); color: var(--muted); min-height: 2rem; animation: fade-up 1s 0.5s ease both; }
+.cursor-blink { animation: blink 0.8s infinite; color: var(--red); }
+@keyframes blink { 0%,100%{ opacity:1; } 50%{ opacity:0; } }
 
-  /* STATS */
-  .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-  @media(max-width:500px){ .stats-grid { grid-template-columns: 1fr 1fr; } }
-  .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; text-align: center; transition: all 0.3s; }
-  .stat-card:hover { border-color: var(--red); box-shadow: 0 8px 24px rgba(255,75,66,0.15); transform: translateY(-3px); }
-  .stat-num { font-family: 'Orbitron', monospace; font-size: 2rem; font-weight: 900; color: var(--red); display: block; }
-  .stat-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.2em; margin-top: 4px; text-transform: uppercase; }
+.hero-badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 1.8rem; animation: fade-up 1s 0.7s ease both; }
+.badge { padding: 6px 14px; border: 1px solid var(--border); border-radius: 2px; font-size: 0.68rem; font-family: 'Space Mono', monospace; letter-spacing: 0.15em; color: var(--muted); background: var(--card-bg); transition: all 0.3s; position: relative; overflow: hidden; }
+.badge::before { content: ''; position: absolute; inset: 0; background: var(--red-dim); transform: translateX(-100%); transition: transform 0.3s; }
+.badge:hover::before { transform: translateX(0); }
+.badge:hover { color: var(--red); border-color: var(--red); }
 
-  /* SOCIALS */
-  .socials-row { display: flex; gap: 16px; flex-wrap: wrap; }
-  .social-btn { display: flex; align-items: center; gap: 10px; padding: 12px 24px; border: 1px solid var(--border); border-radius: 3px; background: var(--card-bg); color: var(--muted); text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; transition: all 0.3s; position: relative; overflow: hidden; }
-  .social-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-  .social-btn::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transition: transform 0.3s; }
-  .social-btn:hover::before { transform: scaleX(1); }
-  .social-btn:hover { color: var(--white); border-color: var(--red); }
+.pv-badge { display: inline-flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 0.72rem; border-radius: 3px; overflow: hidden; margin-top: 18px; animation: fade-up 1s 0.9s ease both; }
+.pv-label { background: #161b22; color: var(--muted); padding: 6px 14px; letter-spacing: 0.12em; border: 1px solid var(--border); border-right: none; border-radius: 3px 0 0 3px; }
+.pv-count { background: var(--red); color: #fff; padding: 6px 14px; border-radius: 0 3px 3px 0; font-weight: 700; }
 
-  footer { position: relative; z-index: 2; text-align: center; padding: 48px 24px; border-top: 1px solid var(--border); }
-  footer p { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.2em; }
-  footer .red { color: var(--red); }
+.scroll-hint { position: absolute; bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--muted); font-size: 0.65rem; letter-spacing: 0.2em; animation: fade-up 1s 1.2s ease both; font-family: 'Space Mono', monospace; }
+.scroll-line { width: 1px; height: 55px; background: linear-gradient(to bottom, var(--red), transparent); animation: scroll-anim 2s ease-in-out infinite; }
+@keyframes scroll-anim { 0%,100%{ opacity:1; transform:scaleY(1); } 50%{ opacity:.4; transform:scaleY(.6); } }
+@keyframes fade-up { from{ opacity:0; transform:translateY(28px); } to{ opacity:1; transform:translateY(0); } }
 
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--red), transparent); }
+/* SECTIONS */
+section { padding: 80px 0; position: relative; z-index: 2; }
+.section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+.section-header h2 { font-family: 'Orbitron', monospace; font-size: clamp(1.05rem, 3vw, 1.6rem); color: var(--white); white-space: nowrap; }
+.section-header .line { flex: 1; height: 1px; background: linear-gradient(to right, var(--red), transparent); }
+.section-header .num { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--red); letter-spacing: 0.1em; }
 
-  /* LOADER */
-  #loader { position: fixed; inset: 0; background: var(--bg); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; transition: opacity 0.6s ease, visibility 0.6s; }
-  #loader.hidden { opacity: 0; visibility: hidden; }
-  .loader-text { font-family: 'Orbitron', monospace; font-size: 1rem; color: var(--red); letter-spacing: 0.3em; animation: blink 1s infinite; }
-  .loader-bar-wrap { width: 200px; height: 2px; background: rgba(255,75,66,0.15); border-radius: 1px; overflow: hidden; }
-  .loader-bar { height: 100%; background: var(--red); width: 0%; animation: load-fill 1.2s ease forwards; }
-  @keyframes load-fill { to { width: 100%; } }
+/* DIVIDER */
+.divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--red), transparent); position: relative; z-index: 2; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media(max-width:600px){ .about-grid { grid-template-columns: 1fr; } }
+.about-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
+.about-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height 0.4s ease; }
+.about-card:hover::before { height: 100%; }
+.about-card:hover { border-color: var(--red-glow); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(255,75,66,0.12); }
+.about-card h3 { font-family: 'Orbitron', monospace; font-size: 0.78rem; color: var(--red); letter-spacing: 0.2em; margin-bottom: 12px; }
+.about-card p, .about-card li { font-size: 0.98rem; color: var(--muted); line-height: 1.75; }
+.about-card ul { list-style: none; }
+.about-card li::before { content: '▸ '; color: var(--red); }
+
+/* TECH STACK */
+.tech-categories { display: flex; flex-direction: column; gap: 28px; }
+.tech-category h3 { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--red); letter-spacing: 0.3em; margin-bottom: 12px; text-transform: uppercase; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tech-tag { padding: 6px 13px; border: 1px solid var(--border); border-radius: 2px; font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); background: var(--card-bg); transition: all 0.25s; cursor: default; }
+.tech-tag:hover { background: var(--red-dim); border-color: var(--red); color: var(--red); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(255,75,66,0.2); }
+
+/* PINNED PROJECTS */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; transition: all 0.35s; position: relative; overflow: hidden; cursor: pointer; }
+.project-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--red-dim), transparent); opacity: 0; transition: opacity 0.35s; pointer-events: none; }
+.project-card:hover::after { opacity: 1; }
+.project-card:hover { border-color: var(--red); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(255,75,66,0.18); }
+.proj-num { font-family: 'Orbitron', monospace; font-size: 2rem; font-weight: 900; color: rgba(255,75,66,0.1); line-height: 1; margin-bottom: 8px; }
+.project-card h3 { font-family: 'Orbitron', monospace; font-size: 0.9rem; color: var(--white); margin-bottom: 8px; position: relative; z-index: 1; }
+.project-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; position: relative; z-index: 1; }
+.proj-link { display: inline-block; margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--red); letter-spacing: 0.15em; text-decoration: none; position: relative; z-index: 1; transition: letter-spacing 0.3s; }
+.project-card:hover .proj-link { letter-spacing: 0.25em; }
+
+/* REPOS */
+.repos-controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+.repos-search { flex: 1; min-width: 180px; background: var(--card-bg); border: 1px solid var(--border); color: var(--white); font-family: 'Space Mono', monospace; font-size: 0.72rem; padding: 10px 16px; border-radius: 3px; outline: none; transition: border-color 0.3s; }
+.repos-search:focus { border-color: var(--red); }
+.repos-search::placeholder { color: var(--muted); }
+.sort-select { padding: 10px 14px; background: var(--card-bg); border: 1px solid var(--border); color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.65rem; border-radius: 3px; cursor: pointer; outline: none; transition: border-color 0.3s; }
+.sort-select:focus { border-color: var(--red); }
+.filter-row { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 16px; }
+.filter-btn { padding: 6px 12px; border: 1px solid var(--border); border-radius: 2px; background: var(--card-bg); color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; cursor: pointer; transition: all 0.25s; }
+.filter-btn:hover, .filter-btn.active { background: var(--red-dim); border-color: var(--red); color: var(--red); }
+.repos-meta { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); margin-bottom: 20px; letter-spacing: 0.1em; }
+.repos-meta span { color: var(--red); }
+.repos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.repo-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; cursor: pointer; }
+.repo-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--red), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+.repo-card:hover::before { transform: scaleX(1); }
+.repo-card:hover { border-color: var(--red-glow); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(255,75,66,0.13); }
+.repo-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.repo-name { font-family: 'Orbitron', monospace; font-size: 0.75rem; color: var(--red); font-weight: 700; line-height: 1.3; word-break: break-word; }
+.repo-fork-badge { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: var(--muted); border: 1px solid var(--border); padding: 2px 6px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
+.repo-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.repo-desc.no-desc { font-style: italic; opacity: 0.4; }
+.repo-topics { display: flex; flex-wrap: wrap; gap: 5px; }
+.repo-topic { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: #58a6ff; background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.2); padding: 2px 7px; border-radius: 10px; }
+.repo-footer { display: flex; align-items: center; gap: 12px; margin-top: auto; flex-wrap: wrap; }
+.repo-lang { display: flex; align-items: center; gap: 5px; }
+.lang-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.lang-name { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); }
+.repo-stat { display: flex; align-items: center; gap: 4px; font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); }
+.repo-stat svg { width: 12px; height: 12px; opacity: 0.6; }
+.repo-updated { font-family: 'Space Mono', monospace; font-size: 0.57rem; color: var(--muted); margin-left: auto; opacity: 0.5; }
+.repo-link { font-family: 'Space Mono', monospace; font-size: 0.63rem; color: var(--red); text-decoration: none; letter-spacing: 0.1em; transition: letter-spacing 0.3s; }
+.repo-card:hover .repo-link { letter-spacing: 0.2em; }
+.repos-loading { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 60px 0; color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.2em; }
+.loading-spinner { width: 36px; height: 36px; border: 2px solid var(--border); border-top-color: var(--red); border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.repos-empty { text-align: center; padding: 60px 0; font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.15em; }
+.load-more-wrap { text-align: center; margin-top: 28px; }
+.load-more-btn { padding: 12px 32px; border: 1px solid var(--red); border-radius: 3px; background: transparent; color: var(--red); font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em; cursor: pointer; transition: all 0.3s; }
+.load-more-btn:hover { background: var(--red-dim); }
+
+/* STATS */
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media(max-width:520px){ .stats-grid { grid-template-columns: 1fr 1fr; } }
+.stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px; text-align: center; transition: all 0.3s; }
+.stat-card:hover { border-color: var(--red); box-shadow: 0 8px 24px rgba(255,75,66,0.15); transform: translateY(-3px); }
+.stat-num { font-family: 'Orbitron', monospace; font-size: 1.9rem; font-weight: 900; color: var(--red); display: block; }
+.stat-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.2em; margin-top: 4px; text-transform: uppercase; }
+
+/* SOCIALS */
+.socials-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.social-btn { display: flex; align-items: center; gap: 10px; padding: 12px 22px; border: 1px solid var(--border); border-radius: 3px; background: var(--card-bg); color: var(--muted); text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; transition: all 0.3s; position: relative; overflow: hidden; }
+.social-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+.social-btn::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transition: transform 0.3s; }
+.social-btn:hover::before { transform: scaleX(1); }
+.social-btn:hover { color: var(--white); border-color: var(--red); }
+
+/* FOOTER */
+footer { position: relative; z-index: 2; text-align: center; padding: 48px 24px; border-top: 1px solid var(--border); }
+footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.2em; }
+.red { color: var(--red); }
+
+/* LOADER */
+#loader { position: fixed; inset: 0; background: var(--bg); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; transition: opacity 0.6s ease, visibility 0.6s; }
+#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-text { font-family: 'Orbitron', monospace; font-size: 1rem; color: var(--red); letter-spacing: 0.3em; animation: blink 1s infinite; }
+.loader-bar-wrap { width: 200px; height: 2px; background: rgba(255,75,66,0.15); border-radius: 1px; overflow: hidden; }
+.loader-bar { height: 100%; background: var(--red); width: 0%; animation: load-fill 1.2s ease forwards; }
+@keyframes load-fill { to { width: 100%; } }
 </style>
 </head>
 <body>
 
+<!-- LOADER -->
 <div id="loader">
   <div class="loader-text">INITIALIZING...</div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
 </div>
 
+<!-- CURSOR -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
+
+<!-- PARTICLES -->
 <canvas id="particles"></canvas>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">AA</div>
+  <a class="nav-logo" href="#hero">
+    <img src="https://github.com/Pyro-Warrior-1884.png" alt="Albert Augustine"/>
+    <span>AA</span>
+  </a>
   <div class="nav-links">
     <a href="#about">ABOUT</a>
     <a href="#stack">STACK</a>
@@ -200,12 +230,17 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hero-glow"></div>
   <div class="container" style="position:relative;z-index:2;">
+    <div class="hero-avatar-wrap">
+      <img src="https://github.com/Pyro-Warrior-1884.png" alt="Albert Augustine"/>
+      <div class="hero-avatar-ring"></div>
+    </div>
     <h1 class="hero-name" data-text="Albert Augustine">Albert <span>Augustine</span></h1>
     <p class="hero-subtitle">FULL STACK DEVELOPER &nbsp;·&nbsp; AI EXPLORER &nbsp;·&nbsp; BACKEND ARCHITECT</p>
-    <div class="typewriter-wrap">&gt; <span id="typewriter"></span><span class="cursor-blink">_</span></div>
+    <div class="typewriter-wrap">&gt;&nbsp;<span id="typewriter"></span><span class="cursor-blink">_</span></div>
     <div class="pv-badge">
       <span class="pv-label">PROFILE VIEWS</span>
       <span class="pv-count">89</span>
@@ -217,20 +252,28 @@
       <span class="badge">OPEN SOURCE</span>
     </div>
   </div>
-  <div class="scroll-hint"><div class="scroll-line"></div>SCROLL</div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    SCROLL
+  </div>
 </section>
 
 <div class="divider"></div>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="section-header reveal"><span class="num">01</span><h2>ABOUT ME</h2><div class="line"></div></div>
+    <div class="section-header reveal">
+      <span class="num">01</span>
+      <h2>ABOUT ME</h2>
+      <div class="line"></div>
+    </div>
     <div class="about-grid">
       <div class="about-card reveal">
         <h3>WHO AM I</h3>
         <p>Hi, I'm <strong style="color:var(--white)">Albert Augustine</strong> — a Full Stack Developer focused on building <strong style="color:var(--red)">reliable and scalable applications</strong> that solve real-world problems.</p>
       </div>
-      <div class="about-card reveal" style="transition-delay:0.1s">
+      <div class="about-card reveal" style="transition-delay:0.12s">
         <h3>INTERESTS</h3>
         <ul>
           <li>Full Stack Web Development</li>
@@ -244,28 +287,68 @@
 
 <div class="divider"></div>
 
+<!-- TECH STACK -->
 <section id="stack">
   <div class="container">
-    <div class="section-header reveal"><span class="num">02</span><h2>TECH STACK</h2><div class="line"></div></div>
+    <div class="section-header reveal">
+      <span class="num">02</span>
+      <h2>TECH STACK</h2>
+      <div class="line"></div>
+    </div>
     <div class="tech-categories">
       <div class="reveal">
-        <div class="tech-category"><h3>LANGUAGES</h3>
-          <div class="tech-tags"><span class="tech-tag">C++</span><span class="tech-tag">Python</span><span class="tech-tag">TypeScript</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Java</span><span class="tech-tag">Go</span><span class="tech-tag">Kotlin</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span></div>
+        <div class="tech-category">
+          <h3>Languages</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Go</span>
+            <span class="tech-tag">Kotlin</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+          </div>
         </div>
       </div>
       <div class="reveal" style="transition-delay:0.1s">
-        <div class="tech-category"><h3>FRAMEWORKS &amp; RUNTIME</h3>
-          <div class="tech-tags"><span class="tech-tag">Next.js</span><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Tailwind</span><span class="tech-tag">Prisma</span></div>
+        <div class="tech-category">
+          <h3>Frameworks &amp; Runtime</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">Tailwind</span>
+            <span class="tech-tag">Prisma</span>
+          </div>
         </div>
       </div>
       <div class="reveal" style="transition-delay:0.2s">
-        <div class="tech-category"><h3>DATABASES &amp; INFRA</h3>
-          <div class="tech-tags"><span class="tech-tag">MongoDB</span><span class="tech-tag">MySQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Firebase</span><span class="tech-tag">Appwrite</span><span class="tech-tag">Docker</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Vercel</span><span class="tech-tag">Render</span></div>
+        <div class="tech-category">
+          <h3>Databases &amp; Infra</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">Appwrite</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">GitHub Actions</span>
+            <span class="tech-tag">Vercel</span>
+            <span class="tech-tag">Render</span>
+          </div>
         </div>
       </div>
       <div class="reveal" style="transition-delay:0.3s">
-        <div class="tech-category"><h3>TOOLS</h3>
-          <div class="tech-tags"><span class="tech-tag">Git</span><span class="tech-tag">GitHub</span><span class="tech-tag">Figma</span></div>
+        <div class="tech-category">
+          <h3>Tools</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Git</span>
+            <span class="tech-tag">GitHub</span>
+            <span class="tech-tag">Figma</span>
+          </div>
         </div>
       </div>
     </div>
@@ -274,27 +357,36 @@
 
 <div class="divider"></div>
 
+<!-- DEPLOYED PROJECTS -->
 <section id="pinned">
   <div class="container">
-    <div class="section-header reveal"><span class="num">03</span><h2>DEPLOYED PROJECTS</h2><div class="line"></div></div>
+    <div class="section-header reveal">
+      <span class="num">03</span>
+      <h2>DEPLOYED PROJECTS</h2>
+      <div class="line"></div>
+    </div>
     <div class="projects-grid">
       <div class="project-card reveal">
-        <div class="proj-num">01</div><h3>BMO</h3>
+        <div class="proj-num">01</div>
+        <h3>BMO</h3>
         <p>An interactive project deployed on Vercel with a clean, functional interface.</p>
         <a class="proj-link" href="https://bmo-5i547da52-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
       </div>
       <div class="project-card reveal" style="transition-delay:0.1s">
-        <div class="proj-num">02</div><h3>NavCart</h3>
+        <div class="proj-num">02</div>
+        <h3>NavCart</h3>
         <p>A frontend application for navigation and cart management built with React.</p>
         <a class="proj-link" href="https://frontend-cmy9dbzhg-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
       </div>
       <div class="project-card reveal" style="transition-delay:0.2s">
-        <div class="proj-num">03</div><h3>GitHub Tool</h3>
+        <div class="proj-num">03</div>
+        <h3>GitHub Tool</h3>
         <p>A GitHub profile analytics frontend for exploring repos and user stats.</p>
         <a class="proj-link" href="https://github-frontend-p4jahh4jo-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
       </div>
       <div class="project-card reveal" style="transition-delay:0.3s">
-        <div class="proj-num">04</div><h3>AI Finance</h3>
+        <div class="proj-num">04</div>
+        <h3>AI Finance</h3>
         <p>AI-powered finance recommendation engine with a sleek dashboard UI.</p>
         <a class="proj-link" href="https://aifinancerecomm-9o1uqcqmi-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
       </div>
@@ -304,11 +396,14 @@
 
 <div class="divider"></div>
 
-<!-- ═══════════ LIVE REPOS FROM GITHUB API ═══════════ -->
+<!-- ALL REPOS — LIVE GITHUB API -->
 <section id="repos">
   <div class="container">
-    <div class="section-header reveal"><span class="num">04</span><h2>ALL REPOSITORIES</h2><div class="line"></div></div>
-
+    <div class="section-header reveal">
+      <span class="num">04</span>
+      <h2>ALL REPOSITORIES</h2>
+      <div class="line"></div>
+    </div>
     <div class="repos-controls reveal">
       <input class="repos-search" id="repoSearch" type="text" placeholder="SEARCH REPOS..." autocomplete="off"/>
       <select class="sort-select" id="repoSort">
@@ -320,8 +415,7 @@
     </div>
     <div class="filter-row reveal" id="langFilters"></div>
     <div class="repos-meta" id="reposMeta"></div>
-
-    <div id="reposGrid">
+    <div class="repos-grid" id="reposGrid">
       <div class="repos-loading">
         <div class="loading-spinner"></div>
         FETCHING REPOSITORIES...
@@ -335,234 +429,356 @@
 
 <div class="divider"></div>
 
+<!-- GITHUB STATS -->
 <section id="stats">
   <div class="container">
-    <div class="section-header reveal"><span class="num">05</span><h2>GITHUB STATS</h2><div class="line"></div></div>
-    <div class="stats-grid reveal">
-      <div class="stat-card"><span class="stat-num" id="statRepos">—</span><span class="stat-label">PUBLIC REPOS</span></div>
-      <div class="stat-card"><span class="stat-num" id="statStars">—</span><span class="stat-label">TOTAL STARS</span></div>
-      <div class="stat-card"><span class="stat-num" id="statForks">—</span><span class="stat-label">TOTAL FORKS</span></div>
-      <div class="stat-card"><span class="stat-num" id="statLangs">—</span><span class="stat-label">LANGUAGES</span></div>
-      <div class="stat-card"><span class="stat-num" id="statFollowers">—</span><span class="stat-label">FOLLOWERS</span></div>
-      <div class="stat-card"><span class="stat-num" id="statFollowing">—</span><span class="stat-label">FOLLOWING</span></div>
+    <div class="section-header reveal">
+      <span class="num">05</span>
+      <h2>GITHUB STATS</h2>
+      <div class="line"></div>
     </div>
-    <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px;" class="reveal">
-      <p style="font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.2em;margin-bottom:4px;">LIVE GITHUB CHARTS</p>
-      <img src="https://github-readme-stats.vercel.app/api?username=Pyro-Warrior-1884&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&bg_color=0d1117&title_color=FF4B42&icon_color=FF4B42&border_color=FF4B42" style="max-width:100%;border-radius:4px;border:1px solid var(--border);" loading="lazy"/>
-      <img src="https://nirzak-streak-stats.vercel.app/?user=Pyro-Warrior-1884&theme=tokyonight&background=0d1117&ring=FF4B42&fire=FF4B42&border=FF4B42" style="max-width:100%;border-radius:4px;border:1px solid var(--border);" loading="lazy"/>
-      <img src="https://github-readme-activity-graph.vercel.app/graph?username=Pyro-Warrior-1884&theme=react-dark&bg_color=0d1117&color=FF4B42&line=FF4B42&point=FFFFFF&border_color=FF4B42" style="max-width:100%;border-radius:4px;border:1px solid var(--border);" loading="lazy"/>
+    <div class="stats-grid reveal">
+      <div class="stat-card"><span class="stat-num" id="statRepos">—</span><span class="stat-label">Public Repos</span></div>
+      <div class="stat-card"><span class="stat-num" id="statStars">—</span><span class="stat-label">Total Stars</span></div>
+      <div class="stat-card"><span class="stat-num" id="statForks">—</span><span class="stat-label">Total Forks</span></div>
+      <div class="stat-card"><span class="stat-num" id="statLangs">—</span><span class="stat-label">Languages</span></div>
+      <div class="stat-card"><span class="stat-num" id="statFollowers">—</span><span class="stat-label">Followers</span></div>
+      <div class="stat-card"><span class="stat-num" id="statFollowing">—</span><span class="stat-label">Following</span></div>
+    </div>
+    <div class="reveal" style="margin-top:32px; display:flex; flex-direction:column; gap:16px;">
+      <p style="font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--muted); letter-spacing:0.2em; margin-bottom:4px;">LIVE GITHUB CHARTS</p>
+      <img src="https://github-readme-stats.vercel.app/api?username=Pyro-Warrior-1884&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&bg_color=0d1117&title_color=FF4B42&icon_color=FF4B42&border_color=FF4B42" style="max-width:100%;border-radius:4px;border:1px solid var(--border);" loading="lazy" alt="GitHub Stats"/>
+      <img src="https://nirzak-streak-stats.vercel.app/?user=Pyro-Warrior-1884&theme=tokyonight&background=0d1117&ring=FF4B42&fire=FF4B42&border=FF4B42" style="max-width:100%;border-radius:4px;border:1px solid var(--border);" loading="lazy" alt="Streak Stats"/>
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=Pyro-Warrior-1884&theme=react-dark&bg_color=0d1117&color=FF4B42&line=FF4B42&point=FFFFFF&border_color=FF4B42" style="max-width:100%;border-radius:4px;border:1px solid var(--border);" loading="lazy" alt="Activity Graph"/>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="section-header reveal"><span class="num">06</span><h2>CONTACT</h2><div class="line"></div></div>
+    <div class="section-header reveal">
+      <span class="num">06</span>
+      <h2>CONTACT</h2>
+      <div class="line"></div>
+    </div>
     <div class="socials-row reveal">
       <a class="social-btn" href="https://www.linkedin.com/in/albertaugustine1884" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
         LINKEDIN
       </a>
       <a class="social-btn" href="mailto:albertnedumudy@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
         GMAIL
       </a>
       <a class="social-btn" href="https://github.com/Pyro-Warrior-1884" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+        </svg>
         GITHUB
       </a>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>BUILT BY <span class="red">ALBERT AUGUSTINE</span> · <span class="red">PYRO-WARRIOR-1884</span> · <span id="year"></span></p>
+  <p>BUILT BY <span class="red">ALBERT AUGUSTINE</span> &nbsp;·&nbsp; <span class="red">PYRO-WARRIOR-1884</span> &nbsp;·&nbsp; <span id="year"></span></p>
 </footer>
 
 <script>
-// LOADER
-window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),1400));
-document.getElementById('year').textContent=new Date().getFullYear();
-
-// CURSOR
-const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
-document.addEventListener('mouseover',e=>{
-  if(e.target.closest('a,button,.project-card,.about-card,.tech-tag,.repo-card,.filter-btn')){ring.style.width='56px';ring.style.height='56px';ring.style.opacity='1';}
-  else{ring.style.width='36px';ring.style.height='36px';ring.style.opacity='0.5';}
+// ── LOADER ──
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1400);
 });
 
-// PARTICLES
-const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
-let W,H,pts=[];
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-resize();window.addEventListener('resize',resize);
-function mkPt(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*0.3,vy:(Math.random()-.5)*0.3,r:Math.random()*1.5+0.5,a:Math.random()};}
-for(let i=0;i<80;i++)pts.push(mkPt());
-function drawPts(){
-  ctx.clearRect(0,0,W,H);
-  pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,75,66,${p.a*0.4})`;ctx.fill();});
-  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(255,75,66,${(1-d/120)*0.12})`;ctx.lineWidth=0.8;ctx.stroke();}}
+// ── YEAR ──
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ── CUSTOM CURSOR ──
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+});
+(function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+document.addEventListener('mouseover', e => {
+  const over = e.target.closest('a, button, .project-card, .about-card, .tech-tag, .repo-card, .filter-btn, .stat-card');
+  if (over) { ring.style.width = '54px'; ring.style.height = '54px'; ring.style.opacity = '1'; }
+  else       { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.opacity = '0.5'; }
+});
+
+// ── PARTICLE NETWORK ──
+const canvas = document.getElementById('particles');
+const ctx    = canvas.getContext('2d');
+let W, H, pts = [];
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+function mkPt() {
+  return { x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*0.28, vy: (Math.random()-.5)*0.28, r: Math.random()*1.4+0.4, a: Math.random() };
+}
+for (let i = 0; i < 80; i++) pts.push(mkPt());
+function drawPts() {
+  ctx.clearRect(0, 0, W, H);
+  pts.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+    if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(255,75,66,${p.a * 0.38})`;
+    ctx.fill();
+  });
+  for (let i = 0; i < pts.length; i++) {
+    for (let j = i+1; j < pts.length; j++) {
+      const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 120) {
+        ctx.beginPath();
+        ctx.moveTo(pts[i].x, pts[i].y);
+        ctx.lineTo(pts[j].x, pts[j].y);
+        ctx.strokeStyle = `rgba(255,75,66,${(1 - d/120) * 0.11})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+    }
+  }
   requestAnimationFrame(drawPts);
 }
 drawPts();
 
-// TYPEWRITER
-const lines=['Building Real-World Applications','Full Stack Developer','AI Explorer','Backend Architect','Pyro-Warrior-1884'];
-let li=0,ci=0,del=false,tw=document.getElementById('typewriter');
-function type(){const cur=lines[li];if(!del){tw.textContent=cur.slice(0,++ci);if(ci===cur.length){del=true;setTimeout(type,1800);return;}}else{tw.textContent=cur.slice(0,--ci);if(ci===0){del=false;li=(li+1)%lines.length;setTimeout(type,400);return;}}setTimeout(type,del?50:80);}
-setTimeout(type,1600);
+// ── TYPEWRITER ──
+const lines = ['Building Real-World Applications', 'Full Stack Developer', 'AI Explorer', 'Backend Architect', 'Pyro-Warrior-1884'];
+let li = 0, ci = 0, del = false;
+const tw = document.getElementById('typewriter');
+function type() {
+  const cur = lines[li];
+  if (!del) {
+    tw.textContent = cur.slice(0, ++ci);
+    if (ci === cur.length) { del = true; setTimeout(type, 1800); return; }
+  } else {
+    tw.textContent = cur.slice(0, --ci);
+    if (ci === 0) { del = false; li = (li + 1) % lines.length; setTimeout(type, 400); return; }
+  }
+  setTimeout(type, del ? 48 : 78);
+}
+setTimeout(type, 1600);
 
-// SCROLL REVEAL
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// ── SCROLL REVEAL ──
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-// LANG COLORS
-const LANG_COLORS={JavaScript:'#f1e05a',TypeScript:'#3178c6',Python:'#3572A5',Java:'#b07219','C++':'#f34b7d','C#':'#178600',Go:'#00ADD8',Rust:'#dea584',Ruby:'#701516',PHP:'#4F5D95',Swift:'#F05138',Kotlin:'#A97BFF',Dart:'#00B4AB',HTML:'#e34c26',CSS:'#563d7c',Shell:'#89e051',Vue:'#41b883','Jupyter Notebook':'#DA5B0B',C:'#555555',SCSS:'#c6538c',R:'#198CE7'};
-function langColor(l){return LANG_COLORS[l]||'#8b949e';}
+// ── LANGUAGE COLOUR MAP ──
+const LANG_COLORS = {
+  JavaScript:'#f1e05a', TypeScript:'#3178c6', Python:'#3572A5', Java:'#b07219',
+  'C++':'#f34b7d', 'C#':'#178600', Go:'#00ADD8', Rust:'#dea584', Ruby:'#701516',
+  PHP:'#4F5D95', Swift:'#F05138', Kotlin:'#A97BFF', Dart:'#00B4AB',
+  HTML:'#e34c26', CSS:'#563d7c', Shell:'#89e051', Vue:'#41b883',
+  'Jupyter Notebook':'#DA5B0B', C:'#555555', SCSS:'#c6538c', R:'#198CE7',
+  Dockerfile:'#384d54', MDX:'#fcb32c', Makefile:'#427819'
+};
+function langColor(l) { return LANG_COLORS[l] || '#8b949e'; }
 
-// RELATIVE TIME
-function relTime(iso){const d=new Date(iso),now=new Date(),s=Math.floor((now-d)/1000);if(s<60)return'just now';const m=Math.floor(s/60);if(m<60)return m+'m ago';const h=Math.floor(m/60);if(h<24)return h+'h ago';const dy=Math.floor(h/24);if(dy<30)return dy+'d ago';const mo=Math.floor(dy/30);if(mo<12)return mo+'mo ago';return Math.floor(mo/12)+'y ago';}
+// ── RELATIVE TIME ──
+function relTime(iso) {
+  const s = Math.floor((Date.now() - new Date(iso)) / 1000);
+  if (s < 60)   return 'just now';
+  const m = Math.floor(s/60);   if (m < 60)  return m  + 'm ago';
+  const h = Math.floor(m/60);   if (h < 24)  return h  + 'h ago';
+  const d = Math.floor(h/24);   if (d < 30)  return d  + 'd ago';
+  const mo = Math.floor(d/30);  if (mo < 12) return mo + 'mo ago';
+  return Math.floor(mo/12) + 'y ago';
+}
 
 // ── GITHUB API ──
-const GITHUB_USER='Pyro-Warrior-1884';
-let allRepos=[],filtered=[],visibleCount=12,activeLang='ALL';
-const PAGE_SIZE=12;
+const GITHUB_USER = 'Pyro-Warrior-1884';
+let allRepos = [], filtered = [], visibleCount = 12, activeLang = 'ALL';
+const PAGE_SIZE = 12;
 
-async function fetchAllRepos(){
-  let page=1,results=[];
-  while(true){
-    const r=await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&page=${page}&sort=updated`);
-    if(!r.ok)break;
-    const data=await r.json();
-    if(!Array.isArray(data)||!data.length)break;
-    results=results.concat(data);
-    if(data.length<100)break;
+async function fetchAllRepos() {
+  let page = 1, results = [];
+  while (true) {
+    const r = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&page=${page}&sort=updated`);
+    if (!r.ok) break;
+    const data = await r.json();
+    if (!Array.isArray(data) || !data.length) break;
+    results = results.concat(data);
+    if (data.length < 100) break;
     page++;
   }
   return results;
 }
 
-async function fetchUserInfo(){
-  const r=await fetch(`https://api.github.com/users/${GITHUB_USER}`);
-  return r.ok?await r.json():null;
+async function fetchUserInfo() {
+  const r = await fetch(`https://api.github.com/users/${GITHUB_USER}`);
+  return r.ok ? await r.json() : null;
 }
 
-function buildLangFilters(repos){
-  const langs={};
-  repos.forEach(r=>{if(r.language)langs[r.language]=(langs[r.language]||0)+1;});
-  const sorted=Object.entries(langs).sort((a,b)=>b[1]-a[1]).slice(0,9);
-  const wrap=document.getElementById('langFilters');
-  wrap.innerHTML='';
-  const allBtn=document.createElement('button');
-  allBtn.className='filter-btn active';allBtn.textContent='ALL';allBtn.dataset.lang='ALL';
-  allBtn.onclick=()=>setLangFilter('ALL',allBtn);
+function buildLangFilters(repos) {
+  const langs = {};
+  repos.forEach(r => { if (r.language) langs[r.language] = (langs[r.language] || 0) + 1; });
+  const sorted = Object.entries(langs).sort((a,b) => b[1]-a[1]).slice(0, 9);
+  const wrap = document.getElementById('langFilters');
+  wrap.innerHTML = '';
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn active';
+  allBtn.textContent = 'ALL';
+  allBtn.dataset.lang = 'ALL';
+  allBtn.onclick = () => setLangFilter('ALL', allBtn);
   wrap.appendChild(allBtn);
-  sorted.forEach(([lang,count])=>{
-    const btn=document.createElement('button');
-    btn.className='filter-btn';
-    btn.innerHTML=`<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${langColor(lang)};margin-right:5px;vertical-align:middle;"></span>${lang} <span style="opacity:.45">(${count})</span>`;
-    btn.dataset.lang=lang;
-    btn.onclick=()=>setLangFilter(lang,btn);
+  sorted.forEach(([lang, count]) => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.innerHTML = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${langColor(lang)};margin-right:5px;vertical-align:middle;"></span>${lang} <span style="opacity:.42">(${count})</span>`;
+    btn.dataset.lang = lang;
+    btn.onclick = () => setLangFilter(lang, btn);
     wrap.appendChild(btn);
   });
 }
 
-function setLangFilter(lang,btn){
-  activeLang=lang;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b===btn));
-  visibleCount=PAGE_SIZE;applyFilters();
+function setLangFilter(lang, btn) {
+  activeLang = lang;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+  visibleCount = PAGE_SIZE;
+  applyFilters();
 }
 
-function applyFilters(){
-  const q=document.getElementById('repoSearch').value.toLowerCase().trim();
-  const sort=document.getElementById('repoSort').value;
-  filtered=allRepos.filter(r=>{
-    const ml=activeLang==='ALL'||r.language===activeLang;
-    const mq=!q||r.name.toLowerCase().includes(q)||(r.description||'').toLowerCase().includes(q);
-    return ml&&mq;
+function applyFilters() {
+  const q    = document.getElementById('repoSearch').value.toLowerCase().trim();
+  const sort = document.getElementById('repoSort').value;
+  filtered = allRepos.filter(r => {
+    const ml = activeLang === 'ALL' || r.language === activeLang;
+    const mq = !q || r.name.toLowerCase().includes(q) || (r.description || '').toLowerCase().includes(q);
+    return ml && mq;
   });
-  filtered.sort((a,b)=>{
-    if(sort==='stars')return(b.stargazers_count||0)-(a.stargazers_count||0);
-    if(sort==='name')return a.name.localeCompare(b.name);
-    if(sort==='created')return new Date(b.created_at)-new Date(a.created_at);
-    return new Date(b.updated_at)-new Date(a.updated_at);
+  filtered.sort((a, b) => {
+    if (sort === 'stars')   return (b.stargazers_count || 0) - (a.stargazers_count || 0);
+    if (sort === 'name')    return a.name.localeCompare(b.name);
+    if (sort === 'created') return new Date(b.created_at) - new Date(a.created_at);
+    return new Date(b.updated_at) - new Date(a.updated_at);
   });
   renderRepos();
 }
 
-function renderRepos(){
-  const grid=document.getElementById('reposGrid');
-  const slice=filtered.slice(0,visibleCount);
-  document.getElementById('reposMeta').innerHTML=`SHOWING <span>${Math.min(visibleCount,filtered.length)}</span> OF <span>${filtered.length}</span> REPOSITORIES`;
-  document.getElementById('loadMoreWrap').style.display=filtered.length>visibleCount?'block':'none';
-  if(!filtered.length){grid.innerHTML='<div class="repos-empty">NO REPOSITORIES MATCH YOUR FILTERS</div>';return;}
-  grid.innerHTML='';
-  slice.forEach((repo,i)=>{
-    const card=document.createElement('div');
-    card.className='repo-card';
-    card.style.cssText='opacity:0;transform:translateY(16px);';
-    setTimeout(()=>{card.style.transition='opacity 0.4s ease,transform 0.4s ease';card.style.opacity='1';card.style.transform='translateY(0)';},i*35);
-    const topics=(repo.topics||[]).slice(0,3).map(t=>`<span class="repo-topic">${t}</span>`).join('');
-    card.innerHTML=`
+function renderRepos() {
+  const grid  = document.getElementById('reposGrid');
+  const slice = filtered.slice(0, visibleCount);
+  document.getElementById('reposMeta').innerHTML =
+    `SHOWING <span>${Math.min(visibleCount, filtered.length)}</span> OF <span>${filtered.length}</span> REPOSITORIES`;
+  document.getElementById('loadMoreWrap').style.display =
+    filtered.length > visibleCount ? 'block' : 'none';
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="repos-empty">NO REPOSITORIES MATCH YOUR FILTERS</div>';
+    return;
+  }
+  grid.innerHTML = '';
+  slice.forEach((repo, i) => {
+    const card = document.createElement('div');
+    card.className = 'repo-card';
+    card.style.cssText = 'opacity:0;transform:translateY(16px);';
+    setTimeout(() => {
+      card.style.transition = 'opacity 0.4s ease, transform 0.4s ease, border-color 0.3s, box-shadow 0.3s';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, i * 38);
+    const topics = (repo.topics || []).slice(0, 3).map(t => `<span class="repo-topic">${t}</span>`).join('');
+    const starSVG = `<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.887 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>`;
+    const forkSVG = `<svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878z"/></svg>`;
+    card.innerHTML = `
       <div class="repo-card-top">
         <div class="repo-name">${repo.name}</div>
-        ${repo.fork?'<span class="repo-fork-badge">FORK</span>':''}
+        ${repo.fork ? '<span class="repo-fork-badge">FORK</span>' : ''}
       </div>
-      <div class="repo-desc${!repo.description?' no-desc':''}">${repo.description||'No description provided'}</div>
-      ${topics?`<div class="repo-topics">${topics}</div>`:''}
+      <div class="repo-desc${!repo.description ? ' no-desc' : ''}">${repo.description || 'No description provided'}</div>
+      ${topics ? `<div class="repo-topics">${topics}</div>` : ''}
       <div class="repo-footer">
-        ${repo.language?`<div class="repo-lang"><span class="lang-dot" style="background:${langColor(repo.language)}"></span><span class="lang-name">${repo.language}</span></div>`:''}
-        <div class="repo-stat">
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.887 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
-          ${repo.stargazers_count}
-        </div>
-        <div class="repo-stat">
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878z"/></svg>
-          ${repo.forks_count}
-        </div>
+        ${repo.language ? `<div class="repo-lang"><span class="lang-dot" style="background:${langColor(repo.language)}"></span><span class="lang-name">${repo.language}</span></div>` : ''}
+        <div class="repo-stat">${starSVG} ${repo.stargazers_count}</div>
+        <div class="repo-stat">${forkSVG} ${repo.forks_count}</div>
         <div class="repo-updated">${relTime(repo.updated_at)}</div>
       </div>
       <a class="repo-link" href="${repo.html_url}" target="_blank" onclick="event.stopPropagation()">VIEW ON GITHUB →</a>
     `;
-    card.addEventListener('click',e=>{if(!e.target.classList.contains('repo-link'))window.open(repo.html_url,'_blank');});
+    card.addEventListener('click', e => {
+      if (!e.target.classList.contains('repo-link')) window.open(repo.html_url, '_blank');
+    });
     grid.appendChild(card);
   });
 }
 
-function animCount(el,target){
-  if(isNaN(target)||target===0){el.textContent='0';return;}
-  let n=0;const step=Math.max(1,Math.ceil(target/50));
-  const iv=setInterval(()=>{n=Math.min(n+step,target);el.textContent=n;if(n>=target)clearInterval(iv);},30);
+// ── COUNT-UP ANIMATION ──
+function animCount(el, target) {
+  if (!el || isNaN(target)) return;
+  let n = 0;
+  const step = Math.max(1, Math.ceil(target / 50));
+  const iv = setInterval(() => {
+    n = Math.min(n + step, target);
+    el.textContent = n;
+    if (n >= target) clearInterval(iv);
+  }, 30);
 }
 
-async function init(){
-  try{
-    const[repos,user]=await Promise.all([fetchAllRepos(),fetchUserInfo()]);
-    allRepos=repos;
-    if(user){
-      animCount(document.getElementById('statFollowers'),user.followers||0);
-      animCount(document.getElementById('statFollowing'),user.following||0);
-      animCount(document.getElementById('statRepos'),user.public_repos||0);
+// ── MAIN INIT ──
+async function init() {
+  try {
+    const [repos, user] = await Promise.all([fetchAllRepos(), fetchUserInfo()]);
+    allRepos = repos;
+
+    if (user) {
+      animCount(document.getElementById('statFollowers'), user.followers || 0);
+      animCount(document.getElementById('statFollowing'), user.following || 0);
+      animCount(document.getElementById('statRepos'),     user.public_repos || 0);
     }
-    const totalStars=repos.reduce((s,r)=>s+(r.stargazers_count||0),0);
-    const totalForks=repos.reduce((s,r)=>s+(r.forks_count||0),0);
-    const langs=new Set(repos.map(r=>r.language).filter(Boolean));
-    animCount(document.getElementById('statStars'),totalStars);
-    animCount(document.getElementById('statForks'),totalForks);
-    animCount(document.getElementById('statLangs'),langs.size);
+
+    const totalStars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+    const totalForks = repos.reduce((s, r) => s + (r.forks_count || 0), 0);
+    const langs      = new Set(repos.map(r => r.language).filter(Boolean));
+
+    animCount(document.getElementById('statStars'), totalStars);
+    animCount(document.getElementById('statForks'), totalForks);
+    animCount(document.getElementById('statLangs'), langs.size);
+
     buildLangFilters(repos);
     applyFilters();
-    document.getElementById('loadMoreBtn').addEventListener('click',()=>{visibleCount+=PAGE_SIZE;applyFilters();});
-    document.getElementById('repoSearch').addEventListener('input',()=>{visibleCount=PAGE_SIZE;applyFilters();});
-    document.getElementById('repoSort').addEventListener('change',()=>{visibleCount=PAGE_SIZE;applyFilters();});
-  }catch(e){
-    document.getElementById('reposGrid').innerHTML='<div class="repos-empty">FAILED TO FETCH REPOS — CHECK YOUR CONNECTION</div>';
-    console.error(e);
+
+    document.getElementById('loadMoreBtn').addEventListener('click', () => {
+      visibleCount += PAGE_SIZE;
+      applyFilters();
+    });
+    document.getElementById('repoSearch').addEventListener('input', () => {
+      visibleCount = PAGE_SIZE;
+      applyFilters();
+    });
+    document.getElementById('repoSort').addEventListener('change', () => {
+      visibleCount = PAGE_SIZE;
+      applyFilters();
+    });
+
+  } catch (err) {
+    document.getElementById('reposGrid').innerHTML =
+      '<div class="repos-empty">FAILED TO FETCH REPOS — CHECK YOUR CONNECTION</div>';
+    console.error(err);
   }
 }
 
