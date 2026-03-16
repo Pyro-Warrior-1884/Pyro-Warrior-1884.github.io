@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Albert Augustine</title>
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/tree/main/assets/Albert.png"/>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/main/assets/Albert.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -44,6 +44,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 12px 32
 .nav-links a { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.15em; transition: color 0.2s; }
 .nav-links a:hover { color: var(--red); }
 @media(max-width:700px){ .nav-links { display: none; } }
+.nav-resume-btn { display: flex; align-items: center; gap: 7px; padding: 7px 16px; border: 1px solid var(--red); border-radius: 3px; background: transparent; color: var(--red); font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; cursor: pointer; text-decoration: none; transition: all 0.25s; flex-shrink: 0; }
+.nav-resume-btn:hover { background: var(--red-dim); color: var(--white); border-color: var(--red); }
+.nav-resume-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
 
 /* HERO */
 #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; padding-top: 60px; }
@@ -243,7 +246,10 @@ footer { position: relative; z-index: 2; text-align: center; padding: 48px 24px;
 footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.2em; }
 .red { color: var(--red); }
 
-/* LOADER */
+/* NAV RESUME BUTTON */
+.nav-resume-btn { display: flex; align-items: center; gap: 7px; padding: 7px 16px; border: 1px solid var(--red); border-radius: 3px; background: var(--red-dim); color: var(--red); text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; transition: all 0.3s; white-space: nowrap; }
+.nav-resume-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+.nav-resume-btn:hover { background: var(--red); color: #fff; box-shadow: 0 0 14px var(--red-glow); }
 #loader { position: fixed; inset: 0; background: var(--bg); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; transition: opacity 0.6s ease, visibility 0.6s; }
 #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-text { font-family: 'Orbitron', monospace; font-size: 1rem; color: var(--red); letter-spacing: 0.3em; animation: blink 1s infinite; }
@@ -270,20 +276,24 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#hero">
-    <img src="https://github.com/Pyro-Warrior-1884.png" alt="Albert Augustine"/>
+    <img src="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/main/assets/Albert.png" alt="Albert Augustine"/>
     <span>AA</span>
   </a>
   <div class="nav-links">
     <a href="#about">ABOUT</a>
+    <a href="#education">EDU</a>
+    <a href="#experience">EXP</a>
     <a href="#stack">STACK</a>
     <a href="#pinned">PROJECTS</a>
-    <a href="#experience">EXP</a>
     <a href="#coding">CODING</a>
     <a href="#repos">REPOS</a>
     <a href="#stats">STATS</a>
-    <a href="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/tree/main/assets/Resume.pdf">RESUME</a>
     <a href="#contact">CONTACT</a>
   </div>
+  <a class="nav-resume-btn" href="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/main/assets/Resume.pdf" download="Albert_Augustine_Resume.pdf" target="_blank">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    RESUME
+  </a>
 </nav>
 
 <!-- HERO -->
@@ -291,7 +301,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
   <div class="hero-glow"></div>
   <div class="container" style="position:relative;z-index:2;">
     <div class="hero-avatar-wrap">
-      <img src="https://github.com/Pyro-Warrior-1884.png" alt="Albert Augustine"/>
+      <img src="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/main/assets/Albert.png" alt="Albert Augustine"/>
       <div class="hero-avatar-ring"></div>
     </div>
     <h1 class="hero-name" data-text="Albert Augustine">Albert <span>Augustine</span></h1>
@@ -336,8 +346,8 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
       </div>
       <div class="about-card reveal" style="transition-delay:0.2s">
         <h3>LOCATION</h3>
-        <p>📍 Coimbatore, India<br/>
-        <span style="font-family:'Space Mono',monospace;font-size:0.75rem;">albertaugustine1884@gmail.com</span></p>
+        <p>📍 Kerala, India<br/>
+        <span style="font-family:'Space Mono',monospace;font-size:0.75rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72131e101700061307150701061b1c17434a4a4632151f131b1e5c111d1f">[email&#160;protected]</a></span></p>
       </div>
       <div class="about-card reveal" style="transition-delay:0.3s">
         <h3>LANGUAGES</h3>
@@ -352,11 +362,48 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 
 <div class="divider"></div>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="num">02</span>
+      <h2>EXPERIENCE</h2>
+      <div class="line"></div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div class="exp-company">Al Araab Integrated Group for General Trading</div>
+          <div class="exp-period">MAY 2025 — JUN 2025</div>
+        </div>
+        <div class="exp-role">WEBSITE DESIGNER INTERN · KUWAIT</div>
+        <ul class="exp-bullets">
+          <li>Redesigned the company's official website using Figma, applying UI/UX principles to create a responsive and visually consistent design across devices.</li>
+          <li>Researched modern web development and digital branding trends to improve content structure and market relevance for Kuwait-based users.</li>
+        </ul>
+      </div>
+      <div class="exp-card reveal" style="transition-delay:0.12s">
+        <div class="exp-header">
+          <div class="exp-company">Finstack</div>
+          <div class="exp-period">JUL 2024 — AUG 2024</div>
+        </div>
+        <div class="exp-role">DATABASE DEVELOPER INTERN</div>
+        <ul class="exp-bullets">
+          <li>Managed application deployment, debugging, and issue resolution, gaining hands-on experience in query optimization.</li>
+          <li>Built efficient, data-driven solutions focusing on performance and reliability in production environments.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- TECH STACK -->
 <section id="stack">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">04</span>
+      <span class="num">03</span>
       <h2>TECH STACK</h2>
       <div class="line"></div>
     </div>
@@ -441,15 +488,15 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="pinned">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">05</span>
+      <span class="num">04</span>
       <h2>DEPLOYED PROJECTS</h2>
       <div class="line"></div>
     </div>
     <div class="projects-grid">
       <div class="project-card reveal">
         <div class="proj-num">01</div>
-        <h3>Code Submission Tool</h3>
-        <p>End-to-end academic code evaluation platform with student and instructor portals.</p>
+        <h3>Code Submission &amp; GitHub Tool</h3>
+        <p>End-to-end academic code evaluation platform with student and instructor portals, plus a GitHub profile analytics frontend for exploring repos and user stats.</p>
         <ul class="proj-bullets">
           <li>Processes 60+ submissions per batch with live status tracking and detailed execution reports.</li>
           <li>Three-layer architecture improving evaluation transparency and grading efficiency by 2×.</li>
@@ -459,6 +506,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
           <span class="proj-tech">Node.js</span>
           <span class="proj-tech">Express.js</span>
           <span class="proj-tech">Firebase</span>
+          <span class="proj-tech">GitHub API</span>
           <span class="proj-tech">Vercel</span>
           <span class="proj-tech">Render</span>
         </div>
@@ -504,7 +552,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
         <a class="proj-link" href="https://bmo-5i547da52-albertnedumudy-5247s-projects.vercel.app" target="_blank">VISIT PROJECT →</a>
       </div>
       <div class="project-card reveal" style="transition-delay:0.4s">
-        <div class="proj-num">06</div>
+        <div class="proj-num">05</div>
         <h3>AI Finance</h3>
         <p>AI-powered finance recommendation engine with a sleek dashboard UI.</p>
         <div class="proj-tech-row">
@@ -519,48 +567,11 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 
 <div class="divider"></div>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="num">03</span>
-      <h2>EXPERIENCE</h2>
-      <div class="line"></div>
-    </div>
-    <div class="exp-list">
-      <div class="exp-card reveal">
-        <div class="exp-header">
-          <div class="exp-company">Al Araab Integrated Group for General Trading</div>
-          <div class="exp-period">MAY 2025 — JUN 2025</div>
-        </div>
-        <div class="exp-role">WEBSITE DESIGNER INTERN · KUWAIT</div>
-        <ul class="exp-bullets">
-          <li>Redesigned the company's official website using Figma, applying UI/UX principles to create a responsive and visually consistent design across devices.</li>
-          <li>Researched modern web development and digital branding trends to improve content structure and market relevance for Kuwait-based users.</li>
-        </ul>
-      </div>
-      <div class="exp-card reveal" style="transition-delay:0.12s">
-        <div class="exp-header">
-          <div class="exp-company">Finstack</div>
-          <div class="exp-period">JUL 2024 — AUG 2024</div>
-        </div>
-        <div class="exp-role">DATABASE DEVELOPER INTERN</div>
-        <ul class="exp-bullets">
-          <li>Managed application deployment, debugging, and issue resolution, gaining hands-on experience in query optimization.</li>
-          <li>Built efficient, data-driven solutions focusing on performance and reliability in production environments.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- CERTIFICATIONS -->
 <section id="certifications">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">06</span>
+      <span class="num">05</span>
       <h2>CERTIFICATIONS</h2>
       <div class="line"></div>
     </div>
@@ -589,7 +600,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="coding">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">07</span>
+      <span class="num">06</span>
       <h2>COMPETITIVE CODING</h2>
       <div class="line"></div>
     </div>
@@ -622,7 +633,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="repos">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">08</span>
+      <span class="num">07</span>
       <h2>ALL REPOSITORIES</h2>
       <div class="line"></div>
     </div>
@@ -655,7 +666,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="stats">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">09</span>
+      <span class="num">08</span>
       <h2>GITHUB STATS</h2>
       <div class="line"></div>
     </div>
@@ -682,7 +693,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 <section id="contact">
   <div class="container">
     <div class="section-header reveal">
-      <span class="num">10</span>
+      <span class="num">09</span>
       <h2>CONTACT</h2>
       <div class="line"></div>
     </div>
@@ -695,7 +706,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
         </svg>
         LINKEDIN
       </a>
-      <a class="social-btn" href="mailto:albertaugustine1884@gmail.com">
+      <a class="social-btn" href="/cdn-cgi/l/email-protection#e58489878097918490829096918c8b80d4ddddd1a58288848c89cb868a88">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
           <polyline points="22,6 12,13 2,6"/>
@@ -723,7 +734,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
   <p>BUILT BY <span class="red">ALBERT AUGUSTINE</span> &nbsp;·&nbsp; <span class="red">PYRO-WARRIOR-1884</span> &nbsp;·&nbsp; <span id="year"></span></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── LOADER ──
 window.addEventListener('load', () => {
   setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1400);
