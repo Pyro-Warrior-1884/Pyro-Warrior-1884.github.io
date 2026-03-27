@@ -230,13 +230,47 @@ section { padding: 80px 0; position: relative; z-index: 2; }
 .stat-num { font-family: 'Orbitron', monospace; font-size: 1.9rem; font-weight: 900; color: var(--red); display: block; }
 .stat-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.2em; margin-top: 4px; text-transform: uppercase; }
 
-/* SOCIALS */
+/* GITHUB CHART ERROR */
+.gh-chart-error {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; padding: 36px 24px; text-align: center;
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px;
+}
+.gh-chart-error-icon { font-family: 'Orbitron', monospace; font-size: 2rem; color: rgba(255,75,66,0.25); }
+.gh-chart-error p { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.18em; line-height: 1.8; }
+
+/* SOCIALS — copy-enabled buttons */
 .socials-row { display: flex; gap: 14px; flex-wrap: wrap; }
 .social-btn { display: flex; align-items: center; gap: 10px; padding: 12px 22px; border: 1px solid var(--border); border-radius: 3px; background: var(--card-bg); color: var(--muted); text-decoration: none; font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; transition: all 0.3s; position: relative; overflow: hidden; }
 .social-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
 .social-btn::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transition: transform 0.3s; }
 .social-btn:hover::before { transform: scaleX(1); }
 .social-btn:hover { color: var(--white); border-color: var(--red); }
+/* copyable contacts get a clipboard hint */
+.social-btn.copyable { cursor: pointer; }
+.social-btn.copyable .copy-hint {
+  display: none; position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+  background: var(--red); color: #fff; font-family: 'Space Mono', monospace;
+  font-size: 0.55rem; letter-spacing: 0.12em; padding: 4px 10px; border-radius: 3px;
+  white-space: nowrap; pointer-events: none;
+}
+.social-btn.copyable:hover .copy-hint { display: block; }
+
+/* TOAST NOTIFICATION */
+#copy-toast {
+  position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: rgba(22,27,34,0.97); border: 1px solid var(--red);
+  color: var(--white); font-family: 'Space Mono', monospace; font-size: 0.68rem;
+  letter-spacing: 0.15em; padding: 12px 24px; border-radius: 4px;
+  z-index: 9997; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 24px rgba(255,75,66,0.25);
+  display: flex; align-items: center; gap: 10px;
+}
+#copy-toast.show {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+#copy-toast .toast-icon { color: var(--red); font-size: 0.9rem; }
 
 /* ── RESUME PREVIEW ── */
 .resume-preview-wrap {
@@ -251,7 +285,6 @@ section { padding: 80px 0; position: relative; z-index: 2; }
   border-color: var(--red-glow);
   box-shadow: 0 0 40px rgba(255,75,66,0.08);
 }
-/* top bar mimicking a browser/doc bar */
 .resume-topbar {
   display: flex; align-items: center; justify-content: space-between;
   padding: 10px 18px;
@@ -276,7 +309,6 @@ section { padding: 80px 0; position: relative; z-index: 2; }
 }
 .resume-topbar-actions a:hover { background: var(--red-dim); border-color: var(--red); }
 
-/* iframe container */
 .resume-iframe-container {
   position: relative;
   width: 100%;
@@ -287,7 +319,6 @@ section { padding: 80px 0; position: relative; z-index: 2; }
   width: 100%; height: 100%;
   border: none; display: block;
 }
-/* fallback shown when iframe can't load (e.g. CORS) */
 .resume-fallback {
   display: none;
   flex-direction: column; align-items: center; justify-content: center;
@@ -313,7 +344,6 @@ section { padding: 80px 0; position: relative; z-index: 2; }
 }
 .resume-fallback a:hover { background: var(--red); color: #fff; }
 
-/* mobile: reduce iframe height */
 @media(max-width:600px) {
   .resume-iframe-container { height: 500px; }
 }
@@ -346,6 +376,12 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
 
 <!-- PARTICLES -->
 <canvas id="particles"></canvas>
+
+<!-- COPY TOAST -->
+<div id="copy-toast">
+  <span class="toast-icon">✓</span>
+  <span id="copy-toast-msg">COPIED TO CLIPBOARD</span>
+</div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
@@ -707,15 +743,33 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
     </div>
     <div class="reveal" style="margin-top:32px; display:flex; flex-direction:column; gap:16px;">
       <p style="font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--muted); letter-spacing:0.2em; margin-bottom:4px;">LIVE GITHUB CHARTS</p>
-      <img src="https://github-readme-stats.vercel.app/api?username=Pyro-Warrior-1884&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&bg_color=0d1117&title_color=FF4B42&icon_color=FF4B42&border_color=FF4B42" style="max-width:100%;border-radius:4px;border:1px solid var(--border);" loading="lazy" alt="GitHub Stats"/>
-      <img src="https://github-readme-activity-graph.vercel.app/graph?username=Pyro-Warrior-1884&theme=react-dark&bg_color=0d1117&color=FF4B42&line=FF4B42&point=FFFFFF&border_color=FF4B42" style="max-width:100%;border-radius:4px;border:1px solid var(--border);" loading="lazy" alt="Activity Graph"/>
+      <!-- Stats image with error handling -->
+      <div id="gh-stats-wrap">
+        <img
+          id="gh-stats-img"
+          src="https://github-readme-stats.vercel.app/api?username=Pyro-Warrior-1884&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&bg_color=0d1117&title_color=FF4B42&icon_color=FF4B42&border_color=FF4B42"
+          style="max-width:100%;border-radius:4px;border:1px solid var(--border);"
+          loading="lazy"
+          alt="GitHub Stats"
+        />
+      </div>
+      <!-- Activity graph with error handling -->
+      <div id="gh-activity-wrap">
+        <img
+          id="gh-activity-img"
+          src="https://github-readme-activity-graph.vercel.app/graph?username=Pyro-Warrior-1884&theme=react-dark&bg_color=0d1117&color=FF4B42&line=FF4B42&point=FFFFFF&border_color=FF4B42"
+          style="max-width:100%;border-radius:4px;border:1px solid var(--border);"
+          loading="lazy"
+          alt="Activity Graph"
+        />
+      </div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ── RESUME PREVIEW ── -->
+<!-- RESUME PREVIEW -->
 <section id="resume-preview">
   <div class="container">
     <div class="section-header reveal">
@@ -724,25 +778,22 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
       <div class="line"></div>
     </div>
     <div class="resume-preview-wrap reveal">
-      <!-- top chrome bar -->
       <div class="resume-topbar">
         <div class="resume-topbar-dots">
           <span></span><span></span><span></span>
         </div>
         <div class="resume-topbar-title">Albert_Augustine_Resume.pdf</div>
         <div class="resume-topbar-actions">
-          <a href="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/main/assets/Resume.pdf" target="_blank">OPEN ↗</a>
+          <!-- OPEN button removed — download covers this -->
           <a href="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/main/assets/Resume.pdf" download="Albert_Augustine_Resume.pdf">DOWNLOAD ↓</a>
         </div>
       </div>
-      <!-- iframe viewer -->
       <div class="resume-iframe-container">
         <iframe
           id="resumeIframe"
-          src="https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/main/assets/Resume.pdf"
+          src=""
           title="Albert Augustine Resume"
         ></iframe>
-        <!-- fallback if iframe is blocked -->
         <div class="resume-fallback" id="resumeFallback">
           <div class="resume-fallback-icon">⬡</div>
           <p>INLINE PREVIEW UNAVAILABLE<br/>DUE TO BROWSER RESTRICTIONS</p>
@@ -771,7 +822,13 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LINKEDIN
       </a>
-      <a class="social-btn" href="mailto:albertaugustine1884@gmail.com">
+      <!-- EMAIL — copyable -->
+      <a class="social-btn copyable"
+         href="mailto:albertaugustine1884@gmail.com"
+         data-copy="albertaugustine1884@gmail.com"
+         data-label="EMAIL COPIED!"
+         onclick="handleCopyContact(event, this)">
+        <span class="copy-hint">CLICK TO COPY</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         albertaugustine1884@gmail.com
       </a>
@@ -779,7 +836,13 @@ footer p { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
         GITHUB
       </a>
-      <a class="social-btn" href="tel:+918089735150">
+      <!-- PHONE — copyable -->
+      <a class="social-btn copyable"
+         href="tel:+918089735150"
+         data-copy="+918089735150"
+         data-label="NUMBER COPIED!"
+         onclick="handleCopyContact(event, this)">
+        <span class="copy-hint">CLICK TO COPY</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.75 1.19 2 2 0 012.72 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.65a16 16 0 006.29 6.29l1.01-1.01a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         +91 80897 35150
       </a>
@@ -810,21 +873,78 @@ heroAvatar.addEventListener('click', openLightbox);
 lightbox.addEventListener('click', closeLightbox);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-// ── RESUME IFRAME FALLBACK ──
-// If the raw GitHub URL can't render inside an iframe (common browser security),
-// swap it to a Google Docs viewer which can proxy PDFs from public URLs.
+// ── COPY-TO-CLIPBOARD FOR CONTACT BUTTONS ──
+let toastTimer = null;
+function showToast(msg) {
+  const toast = document.getElementById('copy-toast');
+  document.getElementById('copy-toast-msg').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function handleCopyContact(e, btn) {
+  const text = btn.dataset.copy;
+  const label = btn.dataset.label || 'COPIED TO CLIPBOARD';
+  if (!text) return; // let default href action proceed if no copy data
+
+  // Try Clipboard API; fall back to execCommand
+  if (navigator.clipboard && window.isSecureContext) {
+    e.preventDefault();
+    navigator.clipboard.writeText(text).then(() => showToast(label)).catch(() => {
+      // fallback: just let the mailto/tel link open
+    });
+  } else {
+    // execCommand fallback
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); e.preventDefault(); showToast(label); } catch(_) {}
+    document.body.removeChild(ta);
+  }
+}
+
+// ── RESUME IFRAME — Google Docs viewer with fallback ──
 const resumeIframe   = document.getElementById('resumeIframe');
 const resumeFallback = document.getElementById('resumeFallback');
 const RAW_PDF = 'https://raw.githubusercontent.com/Pyro-Warrior-1884/Pyro-Warrior-1884.github.io/main/assets/Resume.pdf';
 const GDOCS_VIEWER = `https://docs.google.com/viewer?url=${encodeURIComponent(RAW_PDF)}&embedded=true`;
 
-// Try Google Docs viewer first — works reliably for public PDFs
 resumeIframe.src = GDOCS_VIEWER;
-
 resumeIframe.addEventListener('error', () => {
   resumeIframe.style.display = 'none';
   resumeFallback.classList.add('visible');
 });
+
+// ── GITHUB CHART ERROR HANDLING ──
+function makeChartError(label) {
+  return `<div class="gh-chart-error">
+    <div class="gh-chart-error-icon">⬡</div>
+    <p>${label}<br/>GITHUB STATS CANNOT BE GENERATED AT THE MOMENT</p>
+  </div>`;
+}
+
+const ghStatsImg = document.getElementById('gh-stats-img');
+const ghActivityImg = document.getElementById('gh-activity-img');
+
+ghStatsImg.addEventListener('error', () => {
+  document.getElementById('gh-stats-wrap').innerHTML = makeChartError('STATS CHART UNAVAILABLE —');
+});
+
+ghActivityImg.addEventListener('error', () => {
+  document.getElementById('gh-activity-wrap').innerHTML = makeChartError('ACTIVITY GRAPH UNAVAILABLE —');
+});
+
+// Also handle SVG/text responses that aren't real images (some stat services return error SVGs)
+// We probe with a fetch to check if the image endpoint is healthy
+async function probeChartUrl(url, wrapId, label) {
+  try {
+    const r = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+    // no-cors won't give us status, so we rely on the img onerror above
+  } catch(_) {
+    document.getElementById(wrapId).innerHTML = makeChartError(label);
+  }
+}
 
 // ── CUSTOM CURSOR ──
 const cursor = document.getElementById('cursor');
